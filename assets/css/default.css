@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* reset */
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}body,button,input,select,textarea{font:12px/1.5 tahoma,arial,sans-serif;}h1,h2,h3,h4,h5,h6{font-size:100%;}address,cite,dfn,em,var{font-style:normal;}code,kbd,pre,samp{font-family:courier new,courier,monospace;}small{font-size:12px;}ul,ol{list-style:none;}a{text-decoration:none;}a:hover{text-decoration:underline;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}legend{color:#000;}fieldset,img{border:0;}button,input,select,textarea{font-size:100%;}table{border-collapse:collapse;border-spacing:0;}
 
@@ -54,7 +54,7 @@ a.disabled:hover { text-decoration: none; }
 				div.area-1{background-image:url(../img/map/1_db.png);}
 				div.area-2{background-image:url(../img/map/2_lb.png);}
 				div.area-3{background-image:url(../img/map/3_db.png);}
-				div.area-4{background-image:url(../img/map/4_db.png);}
+				div.area-4{background-image:url(../img/map/4_db.png); left:-100px;}
 				div.area-5{background-image:url(../img/map/5_db.png);}
 				div.area-6{background-image:url(../img/map/6_lb.png);}
 				div.area-7{background-image:url(../img/map/7_lb.png);}
