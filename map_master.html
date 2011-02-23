@@ -7,23 +7,23 @@
 		<script src="assets/script/jquery-1.5.min.js"></script>
 		<script src="assets/script/map.js"></script>
 	</head>
-	<body>
+	<body id="body-map">
 		<div class="container">
 			<div id="header">
 				<h1 class="system-name">中国移动通信-北京移动分公司KPI监控</h1>
 				<div class="nav">
 					<ul>
-						<li><a href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
-						<li><a href="key_indicator.html" title="查看各指标数据">关键指标</a></li>
+						<li><a class="nav-l" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
+						<li><a class="nav-r" id="nav-indicator" href="key_indicator.html" title="查看各指标数据">关键指标</a></li>
 					</ul>
 				</div>
 				<div class="wel">
-					<span class="welcome">欢迎您</span><span id="user" class="user">分析员</span>
+					<span class="welcome">欢迎您</span><span id="user" class="user">分析人员</span>
 				</div>
 			</div>
-			<div id="content">
-				<div class="content-hd"></div>
-				<div class="content-bd">
+			<div id="content" class="panel">
+				<div class="panel-hd"></div>
+				<div class="panel-bd">
 					<div class="map">
 						<div class="map-hd">
 							<h3>考核总分排名</h3>
@@ -34,10 +34,8 @@
 								<span class="middle">良好</span>
 								<span class="down">较差</span>
 							</div>
-							<div class="area-0"></div>
-							<div class="area area-1">
-								<div class="area-mask"></div>
-							</div>
+							<div class="area area-0"></div>
+							<div class="area area-1"></div>
 							<div class="area area-2"></div>
 							<div class="area area-3"></div>
 							<div class="area area-4"></div>
@@ -73,13 +71,13 @@
 						</div>
 					</div>
 					<div class="indicator">
-						<div class="category">
+						<div id="category" class="category nav">
 							<ul>
-								<li><a href="" title="">异常指标</a></li>
-								<li><a href="" title="">销售类</a></li>
-								<li><a href="" title="">服务类</a></li>
-								<li><a href="" title="">渠道类</a></li>
-								<li><a href="" title="">集团客户类</a></li>
+								<li><a class="nav-l selected" href="#">异常指标</a></li>
+								<li><a href="#">销售类</a></li>
+								<li><a href="#">服务类</a></li>
+								<li><a href="#">渠道类</a></li>
+								<li><a class="nav-r" href="#">集团客户类</a></li>
 							</ul>
 						</div>
 						<div class="areaName">
@@ -92,61 +90,74 @@
 							<table>
 								<tbody>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="plus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="plus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>新增价值客户存活率贡献度</span></td>
-										<td><span class="minus">87.34%</span></td>
-										<td>环比<span>-1.54%</span></td>
+										<td class="data-name"><a href="#">新增价值客户存活率贡献度</a></td>
+										<td class="data-value"><span class="minus">87.34%</span></td>
+										<td class="data-delta"><span>环比</span><span>-1.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="plus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="plus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="minus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="minus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="plus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="plus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="minus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="minus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="plus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="plus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="minus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="minus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="plus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="plus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 									<tr>
-										<td><span>净增客户数</span></td>
-										<td><span class="minus">33,232</span></td>
-										<td>环比<span>+3.54%</span></td>
+										<td class="data-name"><a href="#">净增客户数</a></td>
+										<td class="data-value"><span class="minus">33,232</span></td>
+										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
 				</div>
-				<div class="content-ft"></div>
+				<div class="panel-ft"></div>
+			</div>
+		</div>
+		<div id="pop-areaData">
+			<div id="areaData">
+				<h5>昌平分公司</h5>
+				<span class="areaData-date">2011年2月</span>
+				<ul>
+					<li><span>总考核分:</span>86</li>
+					<li><span>销售类:</span>25</li>
+					<li><span>服务类:</span>32</li>
+					<li><span>渠道类:</span>23</li>
+					<li><span>集团客户类:</span>58</li>
+				</ul>
 			</div>
 		</div>
 	</body>
