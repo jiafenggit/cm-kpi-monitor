@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="assets/css/default.css" />
+		<script src="assets/script/jquery-1.5.min.js"></script>
+		<script src="assets/script/jquery.select.js"></script>
+		<script src="assets/script/base.js"></script>
+		<script src="assets/script/indicator.js"></script>
+	</head>
+	<body id="body-indicator">
+		<div class="container">
+			<div id="header">
+				<h1 class="system-name">中国移动通信-北京移动分公司KPI监控</h1>
+				<div class="nav">
+					<ul>
+						<li><a class="nav-l" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
+						<li><a class="nav-r" id="nav-indicator" href="indicator_detail.html" title="查看各指标数据">关键指标</a></li>
+					</ul>
+				</div>
+				<div class="wel">
+					<span class="welcome">欢迎您，</span>
+					<span id="user" class="user">分析人员</span>
+					| <a href="#" class="manage">管理</a>
+					| <a href="#" class="signout">退出</a>
+				</div>
+			</div>
+			<div id="content" class="panel">
+				<div class="panel-hd"></div>
+				<div class="panel-bd">
+					<div class="indicator-choose clearfix">
+						<h3 id="indicator-name" class="indicator-name">净增客户数<span class="indicator-name-help">help</span></h3>
+						<div id="chooseCondition" class="chooseCondition">
+							<div id="areaSelector" class="area-selector">
+								<div class="trigger"></div>
+								<span>北京市</span>
+							</div>
+							<div id="dateSelector" class="date-selector">
+								<div class="trigger"></div>
+								<span>2011年2月</span>
+							</div>
+						</div>
+						<div id="category-min" class="category-min">
+							<ul>
+								<li><a class="category-min-l selected" href="#">日指标</a></li>
+								<li><a class="category-min-r" href="#">月指标</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="indicator-analysis">
+						<div class="indicatorData">
+							<table>
+								<thead>
+									<tr>
+										<th>当月数据</th>
+										<th>同比</th>
+										<th>环比</th>
+										<th>年度累计</th>
+										<th>年度增幅</th>
+										<th>同级排名</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><span>33,232</span></td>
+										<td><span>+17.64%</span></td>
+										<td><span>+23.43%</span></td>
+										<td><span>53,233</span></td>
+										<td><span>12.33%</span></td>
+										<td><span>第9名</span><span class="minus">>4</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="chart" class="chart">
+						这里用于放柱状图
+					</div>
+				</div>
+				<div class="panel-ft"></div>
+
+				
+				<div class="panel-hd"></div>
+				<div class="panel-bd">
+					<div class="related-indicator clearfix">
+						<h3>关联指标</h3>
+						<div class="btn">
+							<div class="btn-corner"></div>
+							<span>分析</span>
+						</div>
+						<div class="btn">
+							<div class="btn-corner"></div>
+							<span>通用查询</span>
+						</div>
+						<div class="downloadd-btn">
+							<div class="downloadd-btn-corner"></div>
+							<span>异常明细下载</span>
+						</div>
+					</div>
+					<ul class="related-indicator-list">
+						<li>
+							<table>
+								<tr>
+									<td>
+										<a href="#">新增客户数</a>
+									</td>
+									<td class="data-value"><span>32,223</span></td>
+									<td class="data-value">
+										<span>环比</span>
+										<span>-7.54%</span>
+									</td>
+								</tr>
+							</table>
+						</li>
+						<li>
+							<table>
+								<tr>
+									<td>
+										<a href="#">到达客户数</a>
+									</td>
+									<td class="data-value"><span>32,223</span></td>
+									<td class="data-value">
+										<span>环比</span>
+										<span>-7.54%</span>
+									</td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</div>
+				<div class="panel-ft"></div>
+			</div>
+		</div>
+	</body>
+</html>

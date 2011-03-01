@@ -15,16 +15,14 @@
 				<div class="nav">
 					<ul>
 						<li><a class="nav-l" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
-						<li><a class="nav-r" id="nav-indicator" href="indicator_index.html" title="查看各指标数据">关键指标</a></li>
+						<li><a class="nav-r" id="nav-indicator" href="indicator_detail.html" title="查看各指标数据">关键指标</a></li>
 					</ul>
 				</div>
 				<div class="wel">
-					<span class="welcome">欢迎您</span>
-					<div class="user-wrap">
-						<span id="user" class="user">分析人员</span>
-						<a href="#" class="manage">管理</a>
-						<a href="#" class="signout">退出</a>
-					</div>
+					<span class="welcome">欢迎您，</span>
+					<span id="user" class="user">分析人员</span>
+					| <a href="#" class="manage">管理</a>
+					| <a href="#" class="signout">退出</a>
 				</div>
 			</div>
 			<div id="content" class="panel">
@@ -36,9 +34,9 @@
 						</div>
 						<div class="map-bd">
 							<div class="eg">
-								<span class="up">优秀</span>
-								<span class="middle">良好</span>
-								<span class="down">较差</span>
+								<span class="up">1-3名</span>
+								<span class="middle">4-10名</span>
+								<span class="down">11-14名</span>
 							</div>
 							<div class="area area-0"></div>
 							<div class="area area-1"></div>
@@ -86,10 +84,15 @@
 								<li><a class="nav-r" href="#">集团客户类</a></li>
 							</ul>
 						</div>
-						<div class="areaName">
+						<div class="areaName clearfix">
 							<h3>北京市</h3>
-							<div class="calendar">
-								
+							<div id="dateSelector" class="date-selector">
+								<div class="trigger"></div>
+								<span>2011年2月</span>
+							</div>
+							<div class="btn">
+								<div class="btn-corner"></div>
+								<span>查看详细</span>
 							</div>
 						</div>
 						<div class="indicatorData">
@@ -97,53 +100,118 @@
 								<tbody>
 									<tr>
 										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="plus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
+										<td class="data-value"><span>33,232</span></td>
+										<td class="data-delta">
+											<div class="plus">
+												<span class="fade">环比</span><span>+3.54%</span>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td class="data-name"><a href="#">新增价值客户存活率贡献度</a></td>
-										<td class="data-value"><span class="minus">87.34%</span></td>
-										<td class="data-delta"><span>环比</span><span>-1.54%</span></td>
+										<td class="data-value">
+											<div class="minus-mark">
+												<span class="minus-mark-corner"></span>
+												<span class="minus-mark-data">87.34%</span>
+											</div>
+										</td>
+										<td class="data-delta">
+											<div class="minus">
+												<span class="fade">环比</span><span>-1.54%</span>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="plus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
+										<td class="data-value"><span>33,232</span></td>
+										<td class="data-delta">
+											<div class="plus">
+												<span class="fade">环比</span><span>+3.54%</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="data-name"><a href="#">新增价值客户存活率贡献度</a></td>
+										<td class="data-value">
+											<div class="minus-mark">
+												<span class="minus-mark-corner"></span>
+												<span class="minus-mark-data">87.34%</span>
+											</div>
+										</td>
+										<td class="data-delta">
+											<div class="minus">
+												<span class="fade">环比</span><span>-1.54%</span>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="minus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
+										<td class="data-value"><span>33,232</span></td>
+										<td class="data-delta">
+											<div class="plus">
+												<span class="fade">环比</span><span>+3.54%</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="data-name"><a href="#">新增价值客户存活率贡献度</a></td>
+										<td class="data-value">
+											<div class="minus-mark">
+												<span class="minus-mark-corner"></span>
+												<span class="minus-mark-data">87.34%</span>
+											</div>
+										</td>
+										<td class="data-delta">
+											<div class="minus">
+												<span class="fade">环比</span><span>-1.54%</span>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="plus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
+										<td class="data-value"><span>33,232</span></td>
+										<td class="data-delta">
+											<div class="plus">
+												<span class="fade">环比</span><span>+3.54%</span>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="data-name"><a href="#">新增价值客户存活率贡献度</a></td>
+										<td class="data-value">
+											<div class="minus-mark">
+												<span class="minus-mark-corner"></span>
+												<span class="minus-mark-data">87.34%</span>
+											</div>
+										</td>
+										<td class="data-delta">
+											<div class="minus">
+												<span class="fade">环比</span><span>-1.54%</span>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="minus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
+										<td class="data-value"><span>33,232</span></td>
+										<td class="data-delta">
+											<div class="plus">
+												<span class="fade">环比</span><span>+3.54%</span>
+											</div>
+										</td>
 									</tr>
 									<tr>
-										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="plus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
-									</tr>
-									<tr>
-										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="minus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
-									</tr>
-									<tr>
-										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="plus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
-									</tr>
-									<tr>
-										<td class="data-name"><a href="#">净增客户数</a></td>
-										<td class="data-value"><span class="minus">33,232</span></td>
-										<td class="data-delta"><span>环比</span><span>+3.54%</span></td>
+										<td class="data-name"><a href="#">新增价值客户存活率贡献度</a></td>
+										<td class="data-value">
+											<div class="minus-mark">
+												<span class="minus-mark-corner"></span>
+												<span class="minus-mark-data">87.34%</span>
+											</div>
+										</td>
+										<td class="data-delta">
+											<div class="minus">
+												<span class="fade">环比</span><span>-1.54%</span>
+											</div>
+										</td>
 									</tr>
 								</tbody>
 							</table>
