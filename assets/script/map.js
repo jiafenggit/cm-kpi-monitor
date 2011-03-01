@@ -1,6 +1,7 @@
 ;(function( $ ){
 
 $(function(){
+	var _timer_ = undefined;
 	
 	function refreshIndicator(){
 		//刷新指标数据
@@ -12,8 +13,9 @@ $(function(){
 		////
 		//这里假定数据已经组装好了
 		setTimeout(function(){
-			$("#pop-areaData").css("background", "#FFF");
-			$("#areaData").fadeIn();
+			$("#areaData").css({
+				"background": "none"
+			}).children().show();
 		}, 1000);
 	}
 
@@ -48,26 +50,35 @@ $(function(){
 
 	function eventMapAreaMouseenter(e){
 		e.preventDefault();
-
-		var left = e.pageX + 30 + "px",
-			top = e.pageY + 10 + "px";
-
-		var rel = $(e.target).attr("rel"),
-			enterArea = $("div.area-" + rel);
 		
-		$("#pop-areaData").css({
-			"background": "#fff url(assets/img/loading.gif) 50% 50% no-repeat",
-			"top": top,
-			"left": left
-		}).show();
+		_timer_ = setTimeout(function(){
+			var left = e.pageX + 30 + "px",
+				top = e.pageY + 10 + "px";
 
-		loadAreaData();
+			var rel = $(e.target).attr("rel"),
+				enterArea = $("div.area-" + rel);
+
+			$("#areaData").show();
+
+			$("#pop-areaData").css({
+				"top": top,
+				"left": left
+			}).show();
+
+			loadAreaData();
+		}, 500);
 	}
 
 	function eventMapAreaMouseleave(e){
 		e.preventDefault();
 		
-		$("#areaData").hide();
+		clearTimeout(_timer_);
+		_timer_ = undefined;
+
+		$("#areaData").css({
+			"background": "url(assets/img/loading.gif) 50% 50% no-repeat"
+		}).hide();
+		$("#areaData").children().hide();
 		$("#pop-areaData").hide();
 	}
 

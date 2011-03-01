@@ -5,6 +5,7 @@
 		<title></title>
 		<link rel="stylesheet" href="assets/css/default.css" />
 		<script src="assets/script/jquery-1.5.min.js"></script>
+		<script src="assets/script/base.js"></script>
 		<script src="assets/script/map.js"></script>
 	</head>
 	<body id="body-map">
@@ -14,11 +15,16 @@
 				<div class="nav">
 					<ul>
 						<li><a class="nav-l" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
-						<li><a class="nav-r" id="nav-indicator" href="key_indicator.html" title="查看各指标数据">关键指标</a></li>
+						<li><a class="nav-r" id="nav-indicator" href="indicator_index.html" title="查看各指标数据">关键指标</a></li>
 					</ul>
 				</div>
 				<div class="wel">
-					<span class="welcome">欢迎您</span><span id="user" class="user">分析人员</span>
+					<span class="welcome">欢迎您</span>
+					<div class="user-wrap">
+						<span id="user" class="user">分析人员</span>
+						<a href="#" class="manage">管理</a>
+						<a href="#" class="signout">退出</a>
+					</div>
 				</div>
 			</div>
 			<div id="content" class="panel">
