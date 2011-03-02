@@ -4,7 +4,9 @@
 		<meta charset="utf-8" />
 		<title></title>
 		<link rel="stylesheet" href="assets/css/default.css" />
+		<link rel="stylesheet" href="assets/css/jquery-ui-custom-theme/jquery-ui-1.8.10.custom.css" />
 		<script src="assets/script/jquery-1.5.min.js"></script>
+		<script src="assets/script/jquery-ui-1.8.10.custom.min.js"></script>
 		<script src="assets/script/jquery.select.js"></script>
 		<script src="assets/script/base.js"></script>
 		<script src="assets/script/indicator.js"></script>
@@ -33,12 +35,13 @@
 						<h3 id="indicator-name" class="indicator-name">净增客户数<span class="indicator-name-help">help</span></h3>
 						<div id="chooseCondition" class="chooseCondition">
 							<div id="areaSelector" class="area-selector">
-								<div class="trigger"></div>
-								<span>北京市</span>
+								<div class="area-selector-trigger"></div>
+								<span class="area-selector-text">北京市</span>
 							</div>
 							<div id="dateSelector" class="date-selector">
-								<div class="trigger"></div>
-								<span>2011年2月</span>
+								<div class="date-selector-trigger"></div>
+								<span class="date-selector-text">2011年2月2日</span>
+								<input id="daySelector" type="text" value="" />
 							</div>
 						</div>
 						<div id="category-min" class="category-min">
@@ -83,6 +86,7 @@
 				
 				<div class="panel-hd"></div>
 				<div class="panel-bd">
+					<!-- 如果关联指标存在：开始 -->
 					<div class="related-indicator clearfix">
 						<h3>关联指标</h3>
 						<div class="btn">
@@ -128,8 +132,50 @@
 							</table>
 						</li>
 					</ul>
+					<!-- 如果关联指标存在：结束 -->
+
+					<!-- 如果关联指标不存在：开始
+
+					<div class="related-indicator clearfix">
+						<div class="btn related-analysis">
+							<div class="btn-corner"></div>
+							<span>关联分析</span>
+						</div>
+						<div class="btn">
+							<div class="btn-corner"></div>
+							<span>通用查询</span>
+						</div>
+						<div class="downloadd-btn">
+							<div class="downloadd-btn-corner"></div>
+							<span>异常明细下载</span>
+						</div>
+					</div>
+
+					如果关联指标不存在：结束 -->
 				</div>
 				<div class="panel-ft"></div>
+			</div>
+		</div>
+		<!-- 对指标的描述提示 -->
+		<div class="tool-tips" style="display:none;">
+			<div class="adapt-panel">
+				<div class="adapt-panel-hd">
+					<div class="adapt-panel-hd-l"></div>
+					<div class="adapt-panel-hd-r"></div>
+				</div>
+				<div class="adapt-panel-bd">
+					<div class="adapt-panel-bd-l"></div>
+					<div class="adapt-panel-bd-r">
+						<h5 class="tool-tips-title">净增客户数</h5>
+						<p class="tool-tips-content">这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，</p>
+					</div>
+				</div>
+				<div class="adapt-panel-ft">
+					<div class="adapt-panel-ft-l"></div>
+					<div class="adapt-panel-ft-r"></div>
+				</div>
+			</div>
+			<div class="tool-tips-arrow">
 			</div>
 		</div>
 	</body>

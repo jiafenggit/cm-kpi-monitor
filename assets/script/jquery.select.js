@@ -4,10 +4,6 @@ $.fn.select = function(setting){
 
 	var config = $.extend({}, $.fn.select.settings, setting);
 
-	var eventChangeOpt = function(e){
-		console.log("hello")
-	};
-
 	var eventHide = function(e){
 		var node = e.target;
 
@@ -25,7 +21,7 @@ $.fn.select = function(setting){
 		var txt = $(e.target).text();
 		var val = $(e.target).attr("value");
 
-		$("#" + e.data.id + " span").text(txt).attr("value", val);
+		$("#" + e.data.id + " .area-selector-text").text(txt).attr("value", val);
 		$("#" + e.data.id + "-options").hide();
 	};
 	
@@ -47,13 +43,23 @@ $.fn.select = function(setting){
 				css: {
 					position: "absolute",
 					top: top,
-					left: left,
+					left: left - 4,
 					width: config.width || select.width(),
-					textAlign: "left",
-					border: "1px solid #666",
-					background: "#fff"
+					textAlign: "left"
 				}
 			});
+
+			HTML.append("<div class=adapt-panel>" +
+				"<div class=adapt-panel-hd>" +
+					"<div class=adapt-panel-hd-l></div><div class=adapt-panel-hd-r></div>" + 
+				"</div>" +
+				"<div class=adapt-panel-bd>" +
+					"<div class=adapt-panel-bd-l></div><div class=adapt-panel-bd-r></div>" +
+				"</div>" +
+				"<div class=adapt-panel-ft>" +
+					"<div class=adapt-panel-ft-l></div><div class=adapt-panel-ft-r></div>" +
+				"</div>" +
+			"</div>");
 
 			var UL = $("<ul />");
 
@@ -62,14 +68,18 @@ $.fn.select = function(setting){
 					"value": obj.value,
 					text: obj.text,
 					css: {
-						cursor: "default"
+						cursor: "pointer",
+						float: "left",
+						width: "33%",
+						color: "#1044AA",
+						fontSize: "1.2em",
 					}
 				}).bind("click", {"id": id}, eventChangeOption);
 
 				LI.appendTo(UL);
 			});
 
-			UL.appendTo(HTML);
+			UL.appendTo(HTML.find(".adapt-panel-bd-r"));
 
 			HTML.appendTo(document.body);
 		} else {
@@ -83,7 +93,7 @@ $.fn.select = function(setting){
 	return this.each(function(){
 		var $this = $(this);
 
-		$this.find(".trigger").bind("click", {"id": this.id}, eventTriggerClick);
+		$this.find(".area-selector-trigger").bind("click", {"id": this.id}, eventTriggerClick);
 	});
 
 };

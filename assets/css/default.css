@@ -23,9 +23,9 @@ a.disabled:hover { text-decoration: none; }
 .fade{color:#aaa;}
 
 /* area selector */
-.area-selector, .date-selector{float:left; width:150px;  height:32px; line-height:32px; margin-right:10px;}
-	.area-selector span, .date-selector span{padding-left:10px; margin-right:43px; display:block; background:url(../img/select.png) 0 center no-repeat; font-weight:bold;}
-.area-selector .trigger, .date-selector .trigger{float:right; width:43px; height:100%; background:url(../img/select.png) right center no-repeat; }
+.area-selector, .date-selector{float:left; width:150px;  height:32px; margin-right:10px; position:relative;}
+	.area-selector-text, .date-selector-text{padding-left:10px; line-height:32px; margin-right:43px; display:block; background:url(../img/select.png) 0 center no-repeat; font-weight:bold;}
+.area-selector-trigger, .date-selector-trigger{float:right; width:43px; height:100%; background:url(../img/select.png) right center no-repeat; }
 
 /* button */
 .btn{float:right; width:70px;  height:32px; line-height:32px; margin-left:10px; cursor:pointer;}
@@ -47,6 +47,42 @@ a.disabled:hover { text-decoration: none; }
 .minus-mark{height:29px; line-height:32px; float:right; }
 	.minus-mark-data{margin-right:5px; padding-left:5px; display:block; background:url(../img/minus_mark.png) 0 0 no-repeat; }
 	.minus-mark-corner{background:url(../img/minus_mark.png) right 0 no-repeat; float:right; width:5px; height:100%; }
+
+/* panel */
+.panel-hd{height:6px; background:url(../img/panel-hd.png) 0 0 no-repeat;}
+.panel-ft{height:6px; background:url(../img/panel-ft.png) 0 0 no-repeat; margin-bottom:10px;}
+.panel-bd{padding:0 5px; background:url(../img/panel-bd.png) 0 0 repeat-y; overflow:hidden;}
+
+/* adapt-panel */
+.adapt-panel{}
+	.adapt-panel-hd-l{float:left; width:10px; height:6px; background:url(../img/panel-hd.png) 0 0 no-repeat;}
+	.adapt-panel-hd-r{margin-left:10px; height:6px; background:url(../img/panel-hd.png) right 0 no-repeat;}
+	.adapt-panel-ft-l{float:left; width:10px; height:6px; background:url(../img/panel-ft.png) 0 0 no-repeat;}
+	.adapt-panel-ft-r{margin-left:10px; height:6px; background:url(../img/panel-ft.png) right 0 no-repeat;}
+	.adapt-panel-bd{overflow:hidden; }
+	.adapt-panel-bd-l{float:left; width:10px; height:1000px; margin-bottom:-1000px; background:url(../img/panel-bd.png) 0 0 repeat-y;}
+	.adapt-panel-bd-r{margin-left:10px; padding:10px 20px 10px 10px; background:url(../img/panel-bd.png) right 0 repeat-y; overflow:hidden;}
+
+/* tool-tips */
+.tool-tips{
+	display:inline-block; 
+	padding-left:19px; 
+	text-align:left;
+	min-width:100px;
+	max-width:400px;
+	position:absolute; 
+	top:0; 
+	left:0;}
+	.tool-tips-arrow{ 
+		background:url(../img/tool_tips_arrow.png) 0 0 no-repeat; 
+		position:absolute;
+		width:28px;
+		height:24px;
+		left:0;
+		top:10px;}
+	.tool-tips-title{
+		font-size:1.2em;
+	}
 
 /* layout */
 .container,#header,#content { margin-left:auto; margin-right:auto; }
@@ -83,9 +119,6 @@ a.disabled:hover { text-decoration: none; }
 			div.wel span.user{color:#1657B2; font-weight:bold; font-size:1.2em;}
 
 #content{margin-bottom:40px;}
-	div.panel-hd{height:6px; background:url(../img/panel-hd.png) 0 0 no-repeat;}
-	div.panel-ft{height:6px; background:url(../img/panel-ft.png) 0 0 no-repeat; margin-bottom:10px;}
-	div.panel-bd{padding:0 5px; background:url(../img/panel-bd.png) 0 0 repeat-y; overflow:hidden;}
 
 /* map */
 
@@ -173,8 +206,10 @@ div.indicator-detail td{padding-right:20px;}
 /* indicator_analysis */
 .indicator-choose{margin:10px 0; padding:0 20px; }
 	h3.indicator-name{float:left; font-size:30px; margin-right:20px;}
-		.indicator-name-help{width:20px; height:100%; float:right;  text-indent:-100000px;  background:url(../img/help.png) right 30% no-repeat; }
+		.indicator-name-help{cursor:help; width:20px; height:20px; float:right;  text-indent:-100000px;  background:url(../img/help.png) right 30% no-repeat; }
 	.chooseCondition{margin-top:10px;}
+	
+	#daySelector{visibility:hidden; height:0px; line-height:0; font-size:0; position:relative; top:-13px; }
 
 	div.category-min{float:right; margin-top:10px;}
 		div.category-min li{float:left;}
@@ -209,6 +244,7 @@ div.indicator-analysis td{background:#EEE; padding:0 20px; font-size:18px;}
 .related-indicator{padding:10px 20px;}
 	.related-indicator h3{font-size:20px; float:left; }
 	.related-indicator .btn{float:left; }
+	.related-indicator .related-analysis{margin-left:0;}
 
 ul.related-indicator-list{margin:0 20px 10px 0; float:left; }
 	ul.related-indicator-list li{float:left; margin-left:20px; width:450px; background:url(../img/related_indicator_bg.png) center center no-repeat; }
