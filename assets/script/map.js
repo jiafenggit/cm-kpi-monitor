@@ -104,6 +104,8 @@ $(function(){
 	$("#map-area area").bind("click", eventMapAreaClick).hover(eventMapAreaMouseenter,eventMapAreaMouseleave);
 	$("#category a").bind("click", eventCategoryClick);
 
+	$("#dateSelector").dateSelect();
+
 });
 
 })( jQuery );

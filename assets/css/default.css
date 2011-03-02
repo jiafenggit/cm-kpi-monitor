@@ -27,6 +27,20 @@ a.disabled:hover { text-decoration: none; }
 	.area-selector-text, .date-selector-text{padding-left:10px; line-height:32px; margin-right:43px; display:block; background:url(../img/select.png) 0 center no-repeat; font-weight:bold;}
 .area-selector-trigger, .date-selector-trigger{float:right; width:43px; height:100%; background:url(../img/select.png) right center no-repeat; }
 
+#dateSelector-panel .adapt-panel-bd-r{padding:0 10px 0 0;}
+#dateSelector-panel ul{padding-left:10px;}
+	.date-selector-year-bar{
+		background:url(../img/date_selector_year_bar.png) no-repeat 0 50%; 
+		height:34px; 
+		line-height:34px; 
+		text-align:center;
+		font-size:1.2em;
+		font-weight:bold;
+		color:#FFF;
+	}
+		.date-selector-prev-year{margin:4px 0 0 4px; display:block; float:left; width:26px; height:26px; background:url("../css/jquery-ui-custom-theme/images/ui-icons_ffffff_256x240.png") -80px -192px  no-repeat; }
+		.date-selector-next-year{margin:4px 4px 0 0; display:block; float:right; width:26px; height:26px; }
+		.date-selector-year{margin:0 26px;}
 /* button */
 .btn{float:right; width:70px;  height:32px; line-height:32px; margin-left:10px; cursor:pointer;}
 	.btn .btn-corner{background:url(../img/nav_btn_s.png) right 0 no-repeat; float:right; width:10px; height:100%; }
