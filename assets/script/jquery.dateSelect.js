@@ -7,22 +7,38 @@ $.fn.dateSelect = function(setting){
 	var eventHide = function(e){
 		var node = e.target;
 
-		while( node.id != e.data.id && node.id != e.data.id+"-options" && node.nodeName.toLowerCase() != "html" ){
+		while( node.id != e.data.id && node.id != e.data.id+"-panel" && node.nodeName.toLowerCase() != "html" ){
 			node = node.parentNode;
 		}
 
 		if(node.nodeName.toLowerCase() == "html"){
-			$("#" + e.data.id + "-options").hide();
+			$("#" + e.data.id + "-panel").hide();
 			$(document).unbind("click", eventHide);
 		}
 	};
 
 	var eventChangeOption = function(e){
-		var txt = $(e.target).text();
-		var val = $(e.target).attr("value");
+		var year = $("#" + e.data.id + "-panel .date-selector-year").text();
+		var month = $(e.target).text();
 
-		$("#" + e.data.id + " .area-selector-text").text(txt).attr("value", val);
-		$("#" + e.data.id + "-options").hide();
+		var dateFormat = parseInt(year, 10) + "-" + parseInt(month, 10);
+
+		$("#" + e.data.id + " .date-selector-text").text(year + month).attr("value", dateFormat);
+		$("#" + e.data.id + "-panel").hide();
+
+		$.isFunction(config.onSelect) ? config.onSelect(dateFormat) : null;
+	};
+
+	var eventChangeYear = function(e){
+		var $this = $(this);
+		var $year= $this.siblings("div.date-selector-year");
+		var year = parseInt($year.text(), 10);
+
+		if ( $this.hasClass("date-selector-prev-year") ) {
+			$year.text( year - 1 + "年" );
+		} else if ( $this.hasClass("date-selector-next-year") ) {
+			$year.text( year + 1 + "年" );
+		}
 	};
 	
 	var eventTriggerClick = function(e){
@@ -70,6 +86,8 @@ $.fn.dateSelect = function(setting){
 				html: $("<a class=date-selector-prev-year /><a class=date-selector-next-year /><div class=date-selector-year>" + year + "年" + "</div>")
 			});
 
+			yearBar.find("a.date-selector-prev-year, a.date-selector-next-year").click(eventChangeYear);
+
 			yearBar.appendTo(HTML.find(".adapt-panel-bd-r"));
 
 			var UL = $("<ul />");
@@ -96,7 +114,7 @@ $.fn.dateSelect = function(setting){
 			HTML.appendTo(document.body);
 		} else {
 			//just show the one
-			$("#" + id + "-options").show();
+			$("#" + id + "-panel").show();
 		}
 
 		$(document).bind("click", {"id": id}, eventHide)

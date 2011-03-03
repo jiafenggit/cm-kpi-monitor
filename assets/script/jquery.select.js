@@ -23,6 +23,8 @@ $.fn.select = function(setting){
 
 		$("#" + e.data.id + " .area-selector-text").text(txt).attr("value", val);
 		$("#" + e.data.id + "-options").hide();
+
+		$.isFunction(config.onSelect) ? config.onSelect(val, txt) : null;
 	};
 	
 	var eventTriggerClick = function(e){

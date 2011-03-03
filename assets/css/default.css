@@ -38,8 +38,11 @@ a.disabled:hover { text-decoration: none; }
 		font-weight:bold;
 		color:#FFF;
 	}
-		.date-selector-prev-year{margin:4px 0 0 4px; display:block; float:left; width:26px; height:26px; background:url("../css/jquery-ui-custom-theme/images/ui-icons_ffffff_256x240.png") -80px -192px  no-repeat; }
-		.date-selector-next-year{margin:4px 4px 0 0; display:block; float:right; width:26px; height:26px; }
+		.date-selector-prev-year,
+		.date-selector-next-year{margin:4px 0 0 4px; display:block; float:left; width:26px; height:26px; background:url("../img/date_selector_icon.png") 0 0 no-repeat; }
+		.date-selector-next-year{ float:right; margin:4px 4px 0 0; background-position:-26px 0;}
+			.date-selector-prev-year:hover{background-position:0 -26px;}
+			.date-selector-next-year:hover{background-position:-26px -26px;}
 		.date-selector-year{margin:0 26px;}
 /* button */
 .btn{float:right; width:70px;  height:32px; line-height:32px; margin-left:10px; cursor:pointer;}

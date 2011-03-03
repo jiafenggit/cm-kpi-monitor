@@ -1,6 +1,7 @@
 ;(function( $ ) {
 
 $(function(){
+
 	function eventCategoryClick(e){
 		e.preventDefault();
 
@@ -36,7 +37,6 @@ $(function(){
 	}
 
 	$("#category a").bind("click", eventCategoryClick);
-	$("#areaSelector").select({"option": arrMapDict, "width": 300});
 	$("#category-min a").bind("click", eventChangeDayOrMonth);
 
 	$(".indicator-name-help").hover(function(e){
@@ -47,15 +47,26 @@ $(function(){
 	}, function(){
 		$(".tool-tips").hide();
 	});
+	
+	$("#areaSelector").select({
+		option: arrMapDict, 
+		width: 300,
+		onSelect: function(val, txt){
+			alert(val + "-" + txt);
+		}
+	});
 
 	// Datepicker
 	$('#daySelector').datepicker({
 		showOn:"button",
 		buttonImage: "assets/img/transparet_datepicker.png",
 		buttonImageOnly: true,
-		dateFormat: "yy年mm月dd日",
+		dateFormat: "yy-mm-dd",
 		onSelect: function(date){
-			$(this).siblings(".date-selector-text").text(date);
+			var arrDate = date.split("-")
+			var cnDate = arrDate[0] + "年" + arrDate[1] + "月" + arrDate[2] + "日";
+			$(this).siblings(".date-selector-text").text(cnDate);
+			alert(date);
 		}
 	});
 
@@ -63,6 +74,12 @@ $(function(){
 		position: "absolute",
 		right: 0,
 		top: 0
+	});
+
+	$("#dateSelector").dateSelect({
+		onSelect:function(date){
+			alert(date);
+		}
 	});
 
 });
