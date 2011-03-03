@@ -82,6 +82,74 @@ $(function(){
 		}
 	});
 
+	chart = new Highcharts.Chart({
+		chart: {
+			renderTo: 'chart', 
+			defaultSeriesType: 'area'
+		},
+		title: {
+			text: ' '
+		},
+		subtitle: {
+			text: ' '
+		},
+		xAxis: {
+			labels: {
+				formatter: function() {
+					return Highcharts.dateFormat('%d %b', this.value); // clean, unformatted number for year
+				}
+			}							
+		},
+		yAxis: {
+			title: {
+				text: '净增客户数（单位：千）'
+			},
+			labels: {
+				formatter: function() {
+					return this.value / 1000 +'k';
+				}
+			}
+		},
+		tooltip: {
+			formatter: function() {
+				var d = new Date();
+
+				d.setTime(this.x);
+				d = d.getFullYear() + '年' + ( d.getMonth() + 1 ) + "月" + d.getDate() + "日   ";
+
+				return d + this.series.name +' : '+
+					Highcharts.numberFormat(this.y, 0);
+			}
+		},
+		plotOptions: {
+			area: {
+				marker: {
+					enabled: true,
+					symbol: 'circle',
+					radius: 3,
+					states: {
+						hover: {
+							enabled: true
+						}
+					}
+				}
+			}
+		},
+		series: [{
+			name: '净增用户数',
+			data: [1000, 1200, 800, 1200, 1000, 
+				1500, 2400, 2000, 3000, 2800,
+				2800, 2800, 2800, 2800, 2800, 
+				3200, 3600, 3800, 4000, 4200,
+				3800, 4200, 4200, 4200, 2800,
+				3800, 4200, 4200, 4200, 2800,
+				3000
+			],
+			pointStart: Date.UTC(2010, 0, 1),
+			pointInterval: 24 * 3600 * 1000 // one day
+		}]
+	});
+
 });
 
 })( jQuery );

@@ -55,14 +55,6 @@ a.disabled:hover { text-decoration: none; }
 .btn:hover .btn-corner{background-position:right -32px;}
 .btn:hover span{background-position:0 -32px;}
 
-/* download button */
-.downloadd-btn{float:right; width:140px; height:32px; line-height:32px; margin-left:10px; cursor:pointer;}
-	.downloadd-btn .downloadd-btn-corner{background:url(../img/nav_btn_s.png) right 0 no-repeat; float:right; width:10px; height:100%; }
-	.downloadd-btn span{font-size:1.3em; text-align:center; margin-right:10px; padding-left:10px; display:block; background:url(../img/nav_btn_s.png) 0 0 no-repeat; font-weight:bold;}
-
-.downloadd-btn:hover .downloadd-btn-corner{background-position:right -32px;}
-.downloadd-btn:hover span{background-position:0 -32px;}
-
 /* minus-mark */
 .minus-mark{height:29px; line-height:32px; float:right; }
 	.minus-mark-data{margin-right:5px; padding-left:5px; display:block; background:url(../img/minus_mark.png) 0 0 no-repeat; }
@@ -161,20 +153,63 @@ a.disabled:hover { text-decoration: none; }
 				background:url(../img/map/edge.png) 0 0 no-repeat; 
 			}
 			div.area-0{background-image:url(../img/map/edge.png);}
-			div.area-1{background-image:url(../img/map/1_db.png);}
-			div.area-2{background-image:url(../img/map/2_lb.png);}
-			div.area-3{background-image:url(../img/map/3_db.png);}
-			div.area-4{background-image:url(../img/map/4_db.png);}
-			div.area-5{background-image:url(../img/map/5_db.png);}
-			div.area-6{background-image:url(../img/map/6_lb.png);}
-			div.area-7{background-image:url(../img/map/7_lb.png);}
-			div.area-8{background-image:url(../img/map/8_og.png);}
-			div.area-9{background-image:url(../img/map/9_og.png);}
-			div.area-10{background-image:url(../img/map/10_lb.png);}
-			div.area-11{background-image:url(../img/map/11_db.png);}
-			div.area-12{background-image:url(../img/map/12_db.png);}
-			div.area-13{background-image:url(../img/map/13_db.png);}
-			div.area-14{background-image:url(../img/map/14_db.png);}
+
+			div.area-1.db{background-image:url(../img/map/1_db.png);}
+			div.area-1.lb{background-image:url(../img/map/1_lb.png);}
+			div.area-1.og{background-image:url(../img/map/1_og.png);}
+
+			div.area-2.db{background-image:url(../img/map/2_db.png);}
+			div.area-2.lb{background-image:url(../img/map/2_lb.png);}
+			div.area-2.og{background-image:url(../img/map/2_og.png);}
+
+			div.area-3.db{background-image:url(../img/map/3_db.png);}
+			div.area-3.lb{background-image:url(../img/map/3_lb.png);}
+			div.area-3.og{background-image:url(../img/map/3_og.png);}
+
+			div.area-4.db{background-image:url(../img/map/4_db.png);}
+			div.area-4.lb{background-image:url(../img/map/4_lb.png);}
+			div.area-4.og{background-image:url(../img/map/4_og.png);}
+
+			div.area-5.db{background-image:url(../img/map/5_db.png);}
+			div.area-5.lb{background-image:url(../img/map/5_lb.png);}
+			div.area-5.og{background-image:url(../img/map/5_og.png);}
+
+			div.area-6.db{background-image:url(../img/map/6_db.png);}
+			div.area-6.lb{background-image:url(../img/map/6_lb.png);}
+			div.area-6.og{background-image:url(../img/map/6_og.png);}
+
+			div.area-7.db{background-image:url(../img/map/7_db.png);}
+			div.area-7.lb{background-image:url(../img/map/7_lb.png);}
+			div.area-7.og{background-image:url(../img/map/7_og.png);}
+
+			div.area-8.db{background-image:url(../img/map/8_db.png);}
+			div.area-8.lb{background-image:url(../img/map/8_lb.png);}
+			div.area-8.og{background-image:url(../img/map/8_og.png);}
+
+			div.area-9.db{background-image:url(../img/map/9_db.png);}
+			div.area-9.lb{background-image:url(../img/map/9_lb.png);}
+			div.area-9.og{background-image:url(../img/map/9_og.png);}
+
+			div.area-10.db{background-image:url(../img/map/10_db.png);}
+			div.area-10.lb{background-image:url(../img/map/10_lb.png);}
+			div.area-10.og{background-image:url(../img/map/10_og.png);}
+
+			div.area-11.db{background-image:url(../img/map/11_db.png);}
+			div.area-11.lb{background-image:url(../img/map/11_lb.png);}
+			div.area-11.og{background-image:url(../img/map/11_og.png);}
+
+			div.area-12.db{background-image:url(../img/map/12_db.png);}
+			div.area-12.lb{background-image:url(../img/map/12_lb.png);}
+			div.area-12.og{background-image:url(../img/map/12_og.png);}
+
+			div.area-13.db{background-image:url(../img/map/13_db.png);}
+			div.area-13.lb{background-image:url(../img/map/13_lb.png);}
+			div.area-13.og{background-image:url(../img/map/13_og.png);}
+
+			div.area-14.db{background-image:url(../img/map/14_db.png);}
+			div.area-14.lb{background-image:url(../img/map/14_lb.png);}
+			div.area-14.og{background-image:url(../img/map/14_og.png);}
+
 			div.mask{background:none;}
 
 	#pop-areaData{
@@ -254,13 +289,28 @@ div.indicator-detail td{padding-right:20px;}
 				div.category-min a.selected.category-min-l{background-position:0 -64px;}
 				div.category-min a.selected.category-min-r{background-position:right -64px;}
 
-div.indicator-analysis th{ font-size:1.5em; color:#666; padding:0 20px; background:#E6E6E6; text-align:left; }
-div.indicator-analysis td{background:#EEE; padding:0 20px; font-size:18px;}
-div.indicator-analysis td .red{margin-left:10px;}
+div.indicator-analysis th{
+	font-size:1.5em; 
+	color:#666; 
+	padding:0 20px; 
+	background:#E6E6E6; 
+	text-align:left;
+	}
+div.indicator-analysis td{
+	background:#EEE; 
+	padding:0 20px; 
+	font-size:18px; 
+	}
+	div.indicator-analysis td .red{margin-left:10px;}
 
 .chart{
-	height:350px; background:#eee; margin:20px 0;
+	height:350px; 
+	background:#eee; 
+	margin:20px 0; 
+	padding-left:1px;
 }
+
+#downloadBtn{float:right; }
 
 .related-indicator{padding:10px 20px;}
 	.related-indicator h3{font-size:20px; float:left; }
@@ -268,7 +318,8 @@ div.indicator-analysis td .red{margin-left:10px;}
 	.related-indicator .related-analysis{margin-left:0;}
 
 ul.related-indicator-list{margin:0 20px 10px 0; float:left; }
-	ul.related-indicator-list li{float:left; margin-left:20px; width:450px; background:url(../img/related_indicator_bg.png) center center no-repeat; }
+	ul.related-indicator-list li{float:left; margin-left:20px; width:450px; background:url(../img/related_indicator_bg.png) 0 0 no-repeat; }
+		ul.related-indicator-list li:hover{background-position:0 -45px; }
 		ul.related-indicator-list li table{width:100%; }
 			ul.related-indicator-list li table tr{height:45px;}
 			ul.related-indicator-list li table td{padding:0 10px;}

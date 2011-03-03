@@ -1,6 +1,16 @@
 ;(function( $ ){
 
 $(function(){
+	
+	//init map
+	(function(){
+		var areas = $("#map div.area");
+
+		$.each(arrMapDict, function(index, item){
+			areas.eq( parseInt(item.value, 10) ).addClass(item.rank);
+		});
+	})();
+
 	var _timer_ = undefined;
 	
 	function refreshIndicator(){
@@ -22,6 +32,9 @@ $(function(){
 	function eventMapAreaClick(e){
 		e.preventDefault();
 
+		clearTimeout(_timer_);
+		_timer_ = undefined;
+
 		$("#pop-areaData").hide();
 
 		//突出显示选中区域
@@ -29,22 +42,23 @@ $(function(){
 		var allArea = $("div.area");
 		var clickedArea = $("div.area-" + rel);
 
-		if(clickedArea.hasClass("selected")){
-			$("#map-area area").hover(eventMapAreaMouseenter, eventMapAreaMouseleave);
+		if( clickedArea.hasClass("selected") ){
 			//当前已选中，恢复默认状态
-			allArea.css("opacity", "");
+			$("#map-area area").hover(eventMapAreaMouseenter, eventMapAreaMouseleave);
+			allArea.css("backgroundPosition", "0 0");
 			clickedArea.removeClass("selected");
+
 			//恢复右边的指标数据
 			//
 		} else {
-			$("#map-area area").unbind("mouseenter mouseleave");
 			//当前为选中，隐掉其他，突出当前
-			allArea.css("opacity", "0.2");
+			$("#map-area area").unbind("mouseenter mouseleave");
+			allArea.css("backgroundPosition", "-420px 0");
 			allArea.filter("div.selected").removeClass("selected");
-			clickedArea.animate({opacity: ""}, 150).addClass("selected");
-			//clickedArea.css("opacity", "").addClass("selected");
+			clickedArea.css("backgroundPosition", "0 0").addClass("selected");
 
 			//更新右边指标数据
+			//
 		}
 	}
 
