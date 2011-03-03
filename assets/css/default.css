@@ -22,9 +22,11 @@ a.disabled:hover { text-decoration: none; }
 
 .fade{color:#aaa;}
 
+.red{color:#CB220F;}
+
 /* area selector */
-.area-selector, .date-selector{float:left; width:150px;  height:32px; margin-right:10px; position:relative;}
-	.area-selector-text, .date-selector-text{padding-left:10px; line-height:32px; margin-right:43px; display:block; background:url(../img/select.png) 0 center no-repeat; font-weight:bold;}
+.area-selector, .date-selector{float:left; width:180px;  height:32px; margin-right:10px; position:relative;}
+	.area-selector-text, .date-selector-text{color:#323232; font-size:1.2em; padding-left:10px; line-height:32px; margin-right:43px; display:block; background:url(../img/select.png) 0 center no-repeat; font-weight:bold;}
 .area-selector-trigger, .date-selector-trigger{float:right; width:43px; height:100%; background:url(../img/select.png) right center no-repeat; }
 
 #dateSelector-panel .adapt-panel-bd-r{padding:0 10px 0 0;}
@@ -44,10 +46,11 @@ a.disabled:hover { text-decoration: none; }
 			.date-selector-prev-year:hover{background-position:0 -26px;}
 			.date-selector-next-year:hover{background-position:-26px -26px;}
 		.date-selector-year{margin:0 26px;}
+
 /* button */
-.btn{float:right; width:70px;  height:32px; line-height:32px; margin-left:10px; cursor:pointer;}
+.btn{float:right; height:32px; line-height:32px; margin-left:10px; cursor:pointer;}
 	.btn .btn-corner{background:url(../img/nav_btn_s.png) right 0 no-repeat; float:right; width:10px; height:100%; }
-	.btn span{text-align:center; margin-right:10px; padding-left:10px; display:block; background:url(../img/nav_btn_s.png) 0 0 no-repeat; font-weight:bold;}
+	.btn span{color:#323232; font-size:1.3em; text-align:center; margin-right:10px; padding:0 5px 0 15px; display:block; background:url(../img/nav_btn_s.png) 0 0 no-repeat; font-weight:bold;}
 
 .btn:hover .btn-corner{background-position:right -32px;}
 .btn:hover span{background-position:0 -32px;}
@@ -55,7 +58,7 @@ a.disabled:hover { text-decoration: none; }
 /* download button */
 .downloadd-btn{float:right; width:140px; height:32px; line-height:32px; margin-left:10px; cursor:pointer;}
 	.downloadd-btn .downloadd-btn-corner{background:url(../img/nav_btn_s.png) right 0 no-repeat; float:right; width:10px; height:100%; }
-	.downloadd-btn span{text-align:center; margin-right:10px; padding-left:10px; display:block; background:url(../img/nav_btn_s.png) 0 0 no-repeat; font-weight:bold;}
+	.downloadd-btn span{font-size:1.3em; text-align:center; margin-right:10px; padding-left:10px; display:block; background:url(../img/nav_btn_s.png) 0 0 no-repeat; font-weight:bold;}
 
 .downloadd-btn:hover .downloadd-btn-corner{background-position:right -32px;}
 .downloadd-btn:hover span{background-position:0 -32px;}
@@ -112,7 +115,7 @@ a.disabled:hover { text-decoration: none; }
 	div.nav{float:right; margin:15px 5px 0 0;}
 		div.nav li{float:left;}
 			div.nav a{
-				padding:0 17px;
+				padding:0 20px;
 				border-right:1px solid #9B9F9F; 
 				font-size:16px; 
 				font-weight:bold; 
@@ -251,8 +254,9 @@ div.indicator-detail td{padding-right:20px;}
 				div.category-min a.selected.category-min-l{background-position:0 -64px;}
 				div.category-min a.selected.category-min-r{background-position:right -64px;}
 
-div.indicator-analysis th{ font-size:1.5em; color:#666; padding:0 20px; background:#E6E6E6; }
+div.indicator-analysis th{ font-size:1.5em; color:#666; padding:0 20px; background:#E6E6E6; text-align:left; }
 div.indicator-analysis td{background:#EEE; padding:0 20px; font-size:18px;}
+div.indicator-analysis td .red{margin-left:10px;}
 
 .chart{
 	height:350px; background:#eee; margin:20px 0;

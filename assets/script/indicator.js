@@ -43,7 +43,7 @@ $(function(){
 		$(".tool-tips").css({
 			left: e.pageX + "px",
 			top: e.pageY - 22 + "px"
-		}).fadeIn();
+		}).show();
 	}, function(){
 		$(".tool-tips").hide();
 	});
