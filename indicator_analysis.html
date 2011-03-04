@@ -8,10 +8,11 @@
 		<script src="assets/script/jquery-1.5.min.js"></script>
 		<script src="assets/script/jquery-ui-1.8.10.custom.min.js"></script>
 		<script src="assets/script/jquery.select.js"></script>
+		<script src="assets/script/jquery.dateSelect.js"></script>
+		<script src="assets/script/Highcharts-2.1.4/js/highcharts.js"></script>
 		<script src="assets/script/base.js"></script>
 		<script src="assets/script/indicator.js"></script>
-		<script src="assets/script/jquery.dateSelect.js"></script>
-		<script type="text/javascript" src="assets/script/Highcharts-2.1.4/js/highcharts.js"></script>
+		<script src="assets/script/charts.js"></script>
 	</head>
 	<body id="body-indicator">
 		<div class="container">
@@ -80,8 +81,16 @@
 						</div>
 					</div>
 					<div id="chart" class="chart">
-						这里用于放柱状图
 					</div>
+					<select id="chooseChart">
+						<option value="0">area</option>
+						<option value="1">column-group-0</option>
+						<option value="2">column-ground+line</option>
+						<option value="3">column-group-1</option>
+						<option value="4">column+line</option>
+						<option value="5">area+line</option>
+						<option value="6">stacked column</option>
+					</select>
 				</div>
 				<div class="panel-ft"></div>
 

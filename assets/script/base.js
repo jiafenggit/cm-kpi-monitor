@@ -77,3 +77,13 @@ arrMapDict = [{
 ];
 
 })( jQuery );
+
+function getArea(){
+	var arr = [];
+
+	for (area in objMapDict) {
+		arr.push(objMapDict[area]);
+	}
+
+	return arr
+}
