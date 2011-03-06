@@ -7,7 +7,7 @@ $.fn.select = function(setting){
 	var eventHide = function(e){
 		var node = e.target;
 
-		while( node.id != e.data.id && node.id != e.data.id+"-options" && node.nodeName.toLowerCase() != "html" ){
+		while(node.nodeName.toLowerCase() != "html" ){
 			node = node.parentNode;
 		}
 
@@ -18,6 +18,7 @@ $.fn.select = function(setting){
 	};
 
 	var eventChangeOption = function(e){
+
 		var txt = $(e.target).text();
 		var val = $(e.target).attr("value");
 
@@ -28,6 +29,9 @@ $.fn.select = function(setting){
 	};
 	
 	var eventTriggerClick = function(e){
+		e.preventDefault();
+		e.stopPropagation();
+
 
 		var id = e.data.id;
 		var select = $("#" + id);
@@ -84,18 +88,23 @@ $.fn.select = function(setting){
 			UL.appendTo(HTML.find(".adapt-panel-bd-r"));
 
 			HTML.appendTo(document.body);
-		} else {
+
+			$(document).bind("click", {"id": id}, eventHide);
+		} else if(optionsWrap.css("display") == "none") {
 			//just show the one
-			$("#" + id + "-options").show();
+			optionsWrap.show();
+			$(document).bind("click", {"id": id}, eventHide);
+		} else {
+			optionsWrap.hide();
+			$(document).unbind("click", eventHide);
 		}
 
-		$(document).bind("click", {"id": id}, eventHide)
 	};
 
 	return this.each(function(){
 		var $this = $(this);
 
-		$this.find(".area-selector-trigger").bind("click", {"id": this.id}, eventTriggerClick);
+		$this.bind("click", {"id": this.id}, eventTriggerClick);
 	});
 
 };

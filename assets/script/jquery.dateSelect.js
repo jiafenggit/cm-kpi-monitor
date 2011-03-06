@@ -18,6 +18,9 @@ $.fn.dateSelect = function(setting){
 	};
 
 	var eventChangeOption = function(e){
+		e.preventDefault();
+		e.stopPropagation();
+
 		var year = $("#" + e.data.id + "-panel .date-selector-year").text();
 		var month = $(e.target).text();
 
@@ -30,6 +33,9 @@ $.fn.dateSelect = function(setting){
 	};
 
 	var eventChangeYear = function(e){
+		e.preventDefault();
+		e.stopPropagation();
+
 		var $this = $(this);
 		var $year= $this.siblings("div.date-selector-year");
 		var year = parseInt($year.text(), 10);
@@ -42,6 +48,8 @@ $.fn.dateSelect = function(setting){
 	};
 	
 	var eventTriggerClick = function(e){
+		e.preventDefault();
+		e.stopPropagation();
 
 		var id = e.data.id;
 		var select = $("#" + id);
@@ -112,18 +120,20 @@ $.fn.dateSelect = function(setting){
 			UL.appendTo(HTML.find(".adapt-panel-bd-r"));
 
 			HTML.appendTo(document.body);
-		} else {
+		} else if(optionsWrap.css("display") == "none") {
 			//just show the one
-			$("#" + id + "-panel").show();
+			optionsWrap.show();
+			$(document).bind("click", {"id": id}, eventHide);
+		} else {
+			optionsWrap.hide();
+			$(document).unbind("click", eventHide);
 		}
-
-		$(document).bind("click", {"id": id}, eventHide)
 	};
 
 	return this.each(function(){
 		var $this = $(this);
 
-		$this.find(".date-selector-trigger").bind("click", {"id": this.id}, eventTriggerClick);
+		$this.bind("click", {"id": this.id}, eventTriggerClick);
 	});
 
 };
