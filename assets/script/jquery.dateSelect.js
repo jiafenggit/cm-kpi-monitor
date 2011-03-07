@@ -39,11 +39,21 @@ $.fn.dateSelect = function(setting){
 		var $this = $(this);
 		var $year= $this.siblings("div.date-selector-year");
 		var year = parseInt($year.text(), 10);
+		var date = getDate();
+		var optionsWrap = $("#" + e.data.id);
 
 		if ( $this.hasClass("date-selector-prev-year") ) {
-			$year.text( year - 1 + "年" );
+			year--;
+			$year.text(year + "年" );
 		} else if ( $this.hasClass("date-selector-next-year") ) {
-			$year.text( year + 1 + "年" );
+			year++;
+			$year.text( year + "年" );
+		}
+
+		if(year == date.year){
+			optionsWrap.find("li").eq(--date.month).addClass("current");
+		} else {
+			optionsWrap.find("li").removeClass("current");
 		}
 	};
 	
@@ -85,33 +95,25 @@ $.fn.dateSelect = function(setting){
 				"</div>" +
 			"</div>");
 
-			var date = new Date(),
-				year = date.getFullYear();
-				month = date.getMonth() + 1;
+			var date = getDate();
 			
 			var yearBar = $("<div />", {
 				"class": "date-selector-year-bar",
-				html: $("<a class=date-selector-prev-year /><a class=date-selector-next-year /><div class=date-selector-year>" + year + "年" + "</div>")
+				html: $("<a class=date-selector-prev-year /><a class=date-selector-next-year /><div class=date-selector-year>" + date.year + "年" + "</div>")
 			});
 
-			yearBar.find("a.date-selector-prev-year, a.date-selector-next-year").click(eventChangeYear);
+			yearBar.find("a.date-selector-prev-year, a.date-selector-next-year").bind("click", {"id": id + "-panel"}, eventChangeYear);
 
 			yearBar.appendTo(HTML.find(".adapt-panel-bd-r"));
 
-			var UL = $("<ul />");
+			var UL = $("<ul class=date-selector-ul />");
 
 			for(var i = 1; i <= 12; i++){
+				var cur = (i == date.month) ? "current" : "";
 				var LI = $("<li />", {
 					"value": i,
 					text: i+"月",
-					css: {
-						cursor: "pointer",
-						float: "left",
-						width: "25%",
-						color: "#1044AA",
-						fontSize: "1.2em",
-						padding: "2px 0"
-					}
+					"class": cur
 				}).bind("click", {"id": id}, eventChangeOption);
 
 				LI.appendTo(UL);
@@ -130,8 +132,26 @@ $.fn.dateSelect = function(setting){
 		}
 	};
 
+	var getDate = function(){
+		var d = new Date(),
+			year = d.getFullYear(),
+			month = d.getMonth() + 1;
+			date = d.getDate();
+
+		return {
+			"year": year,
+			"month": month,
+			"text": year + "年" + month + "月",
+			"value": year + "-" + month
+		};
+	};
+
 	return this.each(function(){
 		var $this = $(this);
+
+		//init
+		var date = getDate();
+		$this.find(".date-selector-text").text(date.text).attr("value", date.value);
 
 		$this.bind("click", {"id": this.id}, eventTriggerClick);
 	});

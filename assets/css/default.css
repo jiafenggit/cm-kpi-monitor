@@ -24,13 +24,13 @@ a.disabled:hover { text-decoration: none; }
 
 .red{color:#CB220F;}
 
-/* area selector */
-.area-selector, .date-selector{float:left; width:180px;  height:32px; margin-right:10px; position:relative;}
+/* area selector + date-selector */
+.area-selector, .date-selector{float:left; width:180px;  height:32px; margin-right:10px; position:relative; cursor:pointer;}
 	.area-selector-text, .date-selector-text{color:#323232; font-size:1.2em; padding-left:10px; line-height:32px; margin-right:43px; display:block; background:url(../img/select.png) 0 center no-repeat; font-weight:bold;}
 .area-selector-trigger, .date-selector-trigger{float:right; width:43px; height:100%; background:url(../img/select.png) right center no-repeat; }
 
+
 #dateSelector-panel .adapt-panel-bd-r{padding:0 10px 0 0;}
-#dateSelector-panel ul{padding-left:10px;}
 	.date-selector-year-bar{
 		background:url(../img/date_selector_year_bar.png) no-repeat 0 50%; 
 		height:34px; 
@@ -40,8 +40,29 @@ a.disabled:hover { text-decoration: none; }
 		font-weight:bold;
 		color:#FFF;
 	}
+	.date-selector-ul li{
+		color: #555;
+		font-size: 1.1em;
+		padding: 2px 0;
+		border:1px solid #d3d3d3;
+		background: #ededed;
+		cursor: pointer;
+		float: left;
+		width: 23%; 
+		text-align:right;
+		font-weight: bold;
+		margin:1px;}
+		.date-selector-ul li.current{
+			border:1px solid #82BBF3; 
+			background: #E0F5FD; 
+		}
+		.date-selector-ul li:hover{
+			border:1px solid #999; 
+			background: #e4e4e4;
+			color:#212121;
+		}
 		.date-selector-prev-year,
-		.date-selector-next-year{margin:4px 0 0 4px; display:block; float:left; width:26px; height:26px; background:url("../img/date_selector_icon.png") 0 0 no-repeat; }
+		.date-selector-next-year{cursor:pointer; margin:4px 0 0 4px; display:block; float:left; width:26px; height:26px; background:url("../img/date_selector_icon.png") 0 0 no-repeat; }
 		.date-selector-next-year{ float:right; margin:4px 4px 0 0; background-position:-26px 0;}
 			.date-selector-prev-year:hover{background-position:0 -26px;}
 			.date-selector-next-year:hover{background-position:-26px -26px;}
