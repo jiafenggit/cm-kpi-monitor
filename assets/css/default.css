@@ -327,11 +327,35 @@ ul.related-indicator-list{margin:0 20px 10px 0; float:left; }
 				ul.related-indicator-list li table td a{font-size:1.5em;}
 				ul.related-indicator-list li table td span{font-size:1.2em;}
 
-/* download_chrome_frame 
+/* download_chrome_frame */
 .sorry{font-size:2.4em; text-align:center; margin-top:20px;}
 .download{
 	float:right; 
 	width:500px; 
 }
 .ie{ float:left; width:470px; }
-	.ie img{margin:40px 0 0 150px;}*/
+	.ie img{margin:100px 0 0 130px;}
+
+
+.download-CF{margin-top:60px; }
+	a.download-CF-btn{
+		margin-left:-4px;
+		font-size:24px;
+		color:#333;
+		text-decoration:none;
+		display:block; 
+		width:285px; 
+		height:73px; 
+		padding-bottom:8px;
+		line-height:73px;  
+		text-align:center; 
+		background:url(../img/download_CF.png) center center no-repeat; }
+	
+	.download-CF p{
+		color:#9B9F9F;
+	}
+
+.introduce{margin-top: 40px; font-size: 1.4em;} 
+	.introduce dt{font-weight: bold; margin-top: 20px; }
+	.introduce dd{font-size: 0.9em; color:#666;}
+	.introduce .copyright{color:#9B9F9F; font-size: 0.7em; margin-top: 40px; }

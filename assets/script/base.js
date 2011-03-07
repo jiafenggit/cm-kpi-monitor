@@ -1,80 +1,73 @@
 ;(function( $ ) {
 
-objMapDict = {
-	"1": "大兴区",
-	"2": "门头沟区",
-	"3": "城中区",
-	"4": "怀柔区",
-	"5": "延庆县",
-	"6": "密云县",
-	"7": "通州区",
-	"8": "房山区",
-	"9": "海淀区",
-	"10": "顺义区",
-	"11": "昌平区",
-	"12": "平谷区",
-	"13": "丰台区",
-	"14": "朝阳区"
-}
-
 arrMapDict = [{
 		"value": "1",
 		"text": "大兴区",
-		"rank": "db"
+		"rank": "1"
 	}, {
 		"value": "2",
 		"text": "门头沟区",
-		"rank": "og"
+		"rank": "3"
 	}, {
 		"value": "3",
 		"text": "城中区",
-		"rank": "lb"
+		"rank": "2"
 	}, {
 		"value": "4",
 		"text": "怀柔区",
-		"rank": "db"
+		"rank": "1"
 	}, {
 		"value": "5",
 		"text": "延庆县",
-		"rank": "lb"
+		"rank": "2"
 	}, {
 		"value": "6",
 		"text": "密云县",
-		"rank": "lb"
+		"rank": "2"
 	}, {
 		"value": "7",
 		"text": "通州区",
-		"rank": "og"
+		"rank": "3"
 	}, {
 		"value": "8",
 		"text": "房山区",
-		"rank": "og"
+		"rank": "3"
 	}, {
 		"value": "9",
 		"text": "海淀区",
-		"rank": "db"
+		"rank": "1"
 	}, {
 		"value": "10",
 		"text": "顺义区",
-		"rank": "lb"
+		"rank": "2"
 	}, {
 		"value": "11",
 		"text": "昌平区",
-		"rank": "lb"
+		"rank": "2"
 	}, {
 		"value": "12",
 		"text": "平谷区",
-		"rank": "og"
+		"rank": "3"
 	}, {
 		"value": "13",
 		"text": "丰台区",
-		"rank": "lb"
+		"rank": "2"
 	}, {
 		"value": "14",
 		"text": "朝阳区",
-		"rank": "lb"
+		"rank": "2"
 	}
 ];
+
+objMapDict = (function(){
+	var obj = {};
+
+	$.each(arrMapDict, function(index, item){
+		obj[item.value] = item.text;
+	});
+
+	return obj;
+})();
 
 })( jQuery );
 

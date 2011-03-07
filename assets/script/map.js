@@ -7,13 +7,29 @@ $(function(){
 		var areas = $("#map div.area");
 
 		$.each(arrMapDict, function(index, item){
-			areas.eq( parseInt(item.value, 10) ).addClass(item.rank);
+			var area = areas.eq( parseInt(item.value, 10) );
+
+			switch(item.rank){
+				case "1": {
+					area.addClass("db");
+					break;
+				}
+				case "2": {
+					area.addClass("lb");
+					break;
+				}
+				case "3": {
+					area.addClass("og");
+					break;
+				}
+				default: break;
+			}
 		});
 	})();
 
 	var _timer_ = undefined;
 	
-	function refreshIndicator(){
+	function refreshIndicator(Category){
 		//刷新指标数据
 		////
 	}
@@ -21,7 +37,20 @@ $(function(){
 	function loadAreaData(){
 		//加载数据
 		////
-		//这里假定数据已经组装好了
+		/*
+		发ajax请求去取数据，然后更新#areaData,
+
+
+		最后让#areaData显示
+			$("#areaData").css({
+				"background": "none"
+			}).children().show();
+
+		*/
+
+
+
+		//以下是静态页面模拟显示，在添加动态数据时请删除下面代码
 		setTimeout(function(){
 			$("#areaData").css({
 				"background": "none"
@@ -110,7 +139,7 @@ $(function(){
 			
 			//刷新数据
 			////
-			refreshIndicator();
+			refreshIndicator(target.text());
 		}
 	}
 
@@ -120,6 +149,7 @@ $(function(){
 
 	$("#dateSelector").dateSelect({
 		onSelect:function(date){
+			//在此实现选择日期后的数据加载
 			alert(date);
 		}
 	});

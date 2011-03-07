@@ -2,23 +2,6 @@
 
 $(function(){
 
-	function eventCategoryClick(e){
-		e.preventDefault();
-
-		var target = $(e.target);
-
-		if( target.hasClass("selected") ){
-			return
-		} else {
-			//切换选中的样式
-			$("#category a.selected").removeClass("selected");
-			target.addClass("selected");
-			
-			//刷新数据
-			////
-		}
-	}
-
 	function eventChangeDayOrMonth(e){
 		e.preventDefault();
 
@@ -36,7 +19,6 @@ $(function(){
 		}
 	}
 
-	$("#category a").bind("click", eventCategoryClick);
 	$("#category-min a").bind("click", eventChangeDayOrMonth);
 
 	$(".indicator-name-help").hover(function(e){
@@ -75,13 +57,6 @@ $(function(){
 		right: 0,
 		top: 0
 	});
-
-	$("#dateSelector").dateSelect({
-		onSelect:function(date){
-			alert(date);
-		}
-	});
-
 
 });
 
