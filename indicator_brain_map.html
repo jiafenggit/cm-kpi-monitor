@@ -2,16 +2,168 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="chrome=1"> 
 		<title></title>
+		<script src="assets/script/CFInstall.min.js"></script>
+		<script>
+		CFInstall.check({
+			mode: "new",
+			url: "download_chrome_frame.html",
+			destination: window.location
+		});
+
+		brainMapJSON = [{
+			text: "销售分类",
+			delta: 0,
+			rel: 0,
+			state: null,
+			children: [{
+				text: "客户发展",
+				delta: 1,
+				rel: 1,
+				state: null,
+				children: [{
+					text: "净增客户数",
+					delta: 0,
+					rel: 3,
+					state: "current",
+					children: [{
+						text: "新增客户数",
+						delta: 0,
+						rel: 6,
+						state: null,
+						children: [{
+							text: "测试1",
+							delta: 0,
+							rel: 6,
+							state: null,
+							children: []
+						}, {
+							text: "测试2",
+							delta: 0,
+							rel: 6,
+							state: null,
+							children: []
+						}, {
+							text: "测试2",
+							delta: 0,
+							rel: 6,
+							state: null,
+							children: []
+						}, {
+							text: "测试2",
+							delta: 0,
+							rel: 6,
+							state: null,
+							children: []
+						}, {
+							text: "测试2",
+							delta: 0,
+							rel: 6,
+							state: null,
+							children: []
+						}, {
+							text: "测试2",
+							delta: 0,
+							rel: 6,
+							state: null,
+							children: []
+						}, {
+							text: "测试2",
+							delta: 0,
+							rel: 6,
+							state: null,
+							children: []
+						}, {
+							text: "测试2",
+							delta: 0,
+							rel: 6,
+							state: null,
+							children: []
+						}]
+					}]
+				}, {
+					text: "新增价值客户存活率贡献度",
+					delta: 1,
+					rel: 4,
+					state: null,
+					children: [{
+						text: "新增价值客户存活率",
+						delta: 1,
+						rel: 7,
+						state: null,
+						children: []
+					}]
+				}, {
+					text: "客户发展贡献度",
+					delta: 1,
+					rel: 5,
+					state: null,
+					children: [{
+						text: "净增客户数",
+						delta: 1,
+						rel: 8,
+						state: null,
+						children: []
+					}, {
+						text: "客户发展增幅",
+						delta: 1,
+						rel: 9,
+						state: null,
+						children: []
+					}]
+				}]
+			}, {
+				text: "G3客户净增",
+				delta: -1,
+				rel: 2,
+				state: null,
+				children: []
+			}]
+		}];
+
+		brainMapJSON_test = [{
+			text: "销售分类",
+			delta: 0,
+			rel: 0,
+			state: null,
+			children: [{
+				text: "客户发展",
+				delta: 1,
+				rel: 1,
+				state: null,
+				children: []
+			}, {
+				text: "G3客户净增",
+				delta: -1,
+				rel: 2,
+				state: null,
+				children: []
+			}]
+		}];
+		</script>
 		<link rel="stylesheet" href="assets/css/default.css" />
 		<link rel="stylesheet" href="assets/css/brainMap.css" />
-		<link rel="stylesheet" href="assets/css/jquery-ui-custom-theme/jquery-ui-1.8.10.custom.css" />
 		<script src="assets/script/jquery-1.5.min.js"></script>
 		<script src="assets/script/jquery-ui-1.8.10.custom.min.js"></script>
-		<script src="assets/script/jquery.select.js"></script>
 		<script src="assets/script/base.js"></script>
-		<script src="assets/script/indicator.js"></script>
+		<script src="assets/script/jquery.select.js"></script>
+		<script src="assets/script/jquery.brainMap.js"></script>
 		<script src="assets/script/jquery.dateSelect.js"></script>
+		<script src="assets/script/jquery.mouscroll.js"></script>
+		<script>
+		$(function(){
+			$("#brainMap ul.root").brainMap({
+				json:brainMapJSON
+			});
+
+			/*
+			$( ".stage-inner" ).mouscroll({
+				handle: ".stage-inner",
+				cancel: ""
+			}); */
+		});
+		</script>
 	</head>
 	<body id="body-indicator">
 		<div class="container">
@@ -19,7 +171,7 @@
 				<h1 class="system-name">中国移动通信-北京移动分公司KPI监控</h1>
 				<div class="nav">
 					<ul>
-						<li><a class="nav-l" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
+						<li><a class="nav-l selected" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
 						<li><a class="nav-r" id="nav-indicator" href="indicator_detail.html" title="查看各指标数据">关键指标</a></li>
 					</ul>
 				</div>
@@ -31,42 +183,45 @@
 				</div>
 			</div>
 			<div id="content">
-				<div id="brainMap" class="brain-map">
+				<div id="brainMap" class="brain-map stage">
+				<div class="stage-inner">
+					<ul class="root" />
+				  <!--
 					<div class="brain-map-node clearfix">
 						<div class="brain-map-node-txt">销售分类</div>
-						<ul class="brain-map-node-ul">
+						<ul class="brain-map-node-children">
 							<li>
 								<div class="brain-map-node clearfix">
 									<div class="brain-map-node-txt">客户发展</div>
-									<ul class="brain-map-node-ul">
+									<ul class="brain-map-node-children">
 										<li>
 											<div class="brain-map-node clearfix">
 												<div class="brain-map-node-txt">净增客户数</div>
-												<ul class="brain-map-node-ul">
+												<ul class="brain-map-node-children">
 													<li>
 														<div class="brain-map-node clearfix">
 															<div class="brain-map-node-txt">新增客户数</div>
 														</div>
 													</li>
-												</ul class="brain-map-node-ul">
+												</ul class="brain-map-node-children">
 											</div>
 										</li>
 										<li>
 											<div class="brain-map-node clearfix">
 												<div class="brain-map-node-txt">新增价值客户存活率贡献度</div>
-												<ul class="brain-map-node-ul">
+												<ul class="brain-map-node-children">
 													<li>
 														<div class="brain-map-node clearfix">
 															<div class="brain-map-node-txt">新增价值客户存活率</div>
 														</div>
 													</li>
-												</ul class="brain-map-node-ul">
+												</ul class="brain-map-node-children">
 											</div>
 										</li>
 										<li>
 											<div class="brain-map-node clearfix">
 												<div class="brain-map-node-txt">客户发展贡献度</div>
-												<ul class="brain-map-node-ul">
+												<ul class="brain-map-node-children">
 													<li>
 														<div class="brain-map-node clearfix">
 															<div class="brain-map-node-txt">净增客户数</div>
@@ -77,10 +232,10 @@
 															<div class="brain-map-node-txt">客户发展增幅</div>
 														</div>
 													</li>
-												</ul class="brain-map-node-ul">
+												</ul class="brain-map-node-children">
 											</div>
 										</li>
-									</ul class="brain-map-node-ul">
+									</ul class="brain-map-node-children">
 								</div>
 							</li>
 							<li>
@@ -88,8 +243,10 @@
 									<div class="brain-map-node-txt">G3客户净增</div>
 								</div>
 							</li>
-						</ul class="brain-map-node-ul">
+						</ul class="brain-map-node-children">
 					</div>
+					  -->
+				</div>
 				</div>
 			</div>
 		</div>

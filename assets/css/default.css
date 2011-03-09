@@ -29,6 +29,22 @@ a.disabled:hover { text-decoration: none; }
 	.area-selector-text, .date-selector-text{color:#323232; font-size:1.2em; padding-left:10px; line-height:32px; margin-right:43px; display:block; background:url(../img/select.png) 0 center no-repeat; font-weight:bold;}
 .area-selector-trigger, .date-selector-trigger{float:right; width:43px; height:100%; background:url(../img/select.png) right center no-repeat; }
 
+.area-selector-ul li{
+	cursor: pointer;
+	float: left;
+	width: 33%;
+	color: #1044AA;
+	font-size: 1.2em;
+}
+.area-selector-ul li.capital{
+	width:100%;
+	border-bottom:1px solid #D4D4D4;
+	margin-bottom:3px;
+}
+.area-selector-ul li.current{color:#212121;}
+.area-selector-ul li:hover{
+	color:#212121;
+}
 
 #dateSelector-panel .adapt-panel-bd-r{padding:0 10px 0 0;}
 	.date-selector-year-bar{
@@ -140,13 +156,13 @@ a.disabled:hover { text-decoration: none; }
 				height:42px; 
 				background:url(../img/nav_btn.png) -10px 0 no-repeat; }
 			div.nav a:hover{text-decoration:none; background-position:-10px -84px;}
-				div.nav a.nav-l{background-position:0 0;}
-				div.nav a.nav-l:hover{background-position:0 -84px;}
-				div.nav a.nav-r{background-position:right -126px; border-right:0;}
-				div.nav a.nav-r:hover{background-position:right -210px;}
-
-			#body-map div.nav a#nav-map{color:#fff; background-position:0px -42px;}
-			#body-indicator div.nav a#nav-indicator{color:#fff; background-position:right -168px;}
+			div.nav a.nav-l{background-position:0 0;}
+			div.nav a.nav-l:hover{background-position:0 -84px;}
+			div.nav a.nav-r{background-position:right -126px; border-right:0;}
+			div.nav a.nav-r:hover{background-position:right -210px;}
+			div.nav a.selected{color:#fff; background-position:-10px -42px;}
+			div.nav a.nav-l.selected{color:#fff; background-position:0px -42px;}
+			div.nav a.nav-r.selected{color:#fff; background-position:right -168px;}
 	
 	div.wel{float:right; margin-top:35px; margin-right:20px; color:#999;}
 			div.wel span.user{color:#1657B2; font-weight:bold; font-size:1.2em;}

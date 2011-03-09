@@ -82,7 +82,7 @@ $(function(){
 		} else {
 			//当前为选中，隐掉其他，突出当前
 			$("#map-area area").unbind("mouseenter mouseleave");
-			allArea.css("backgroundPosition", "-420px 0");
+			allArea.css("backgroundPosition", "-415px 0");
 			allArea.filter("div.selected").removeClass("selected");
 			clickedArea.css("backgroundPosition", "0 0").addClass("selected");
 

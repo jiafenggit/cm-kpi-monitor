@@ -7,7 +7,7 @@ $.fn.select = function(setting){
 	var eventHide = function(e){
 		var node = e.target;
 
-		while(node.nodeName.toLowerCase() != "html" ){
+		while( node.id != e.data.id && node.id != e.data.id+"-options" && node.nodeName.toLowerCase() != "html" ){
 			node = node.parentNode;
 		}
 
@@ -23,6 +23,8 @@ $.fn.select = function(setting){
 		var val = $(e.target).attr("value");
 
 		$("#" + e.data.id + " .area-selector-text").text(txt).attr("value", val);
+		$("#" + e.data.id + "-options").find("li").removeClass("current");
+		$(e.target).addClass("current");
 		$("#" + e.data.id + "-options").hide();
 
 		$.isFunction(config.onSelect) ? config.onSelect(val, txt) : null;
@@ -30,8 +32,6 @@ $.fn.select = function(setting){
 	
 	var eventTriggerClick = function(e){
 		e.preventDefault();
-		e.stopPropagation();
-
 
 		var id = e.data.id;
 		var select = $("#" + id);
@@ -67,19 +67,18 @@ $.fn.select = function(setting){
 				"</div>" +
 			"</div>");
 
-			var UL = $("<ul />");
+			var UL = $("<ul class=area-selector-ul />");
+
+			$("<li />", {
+					"value": "0",
+					text: "北京市",
+					"class": "capital current"
+				}).bind("click", {"id": id}, eventChangeOption).appendTo(UL);;
 
 			$.each(config.option, function(i, obj){
 				var LI = $("<li />", {
 					"value": obj.value,
-					text: obj.text,
-					css: {
-						cursor: "pointer",
-						float: "left",
-						width: "33%",
-						color: "#1044AA",
-						fontSize: "1.2em",
-					}
+					text: obj.text
 				}).bind("click", {"id": id}, eventChangeOption);
 
 				LI.appendTo(UL);

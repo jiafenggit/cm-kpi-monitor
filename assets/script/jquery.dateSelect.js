@@ -59,7 +59,6 @@ $.fn.dateSelect = function(setting){
 	
 	var eventTriggerClick = function(e){
 		e.preventDefault();
-		e.stopPropagation();
 
 		var id = e.data.id;
 		var select = $("#" + id);
@@ -122,6 +121,7 @@ $.fn.dateSelect = function(setting){
 			UL.appendTo(HTML.find(".adapt-panel-bd-r"));
 
 			HTML.appendTo(document.body);
+			$(document).bind("click", {"id": id}, eventHide);
 		} else if(optionsWrap.css("display") == "none") {
 			//just show the one
 			optionsWrap.show();

@@ -4,13 +4,21 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="chrome=1"> 
 		<title></title>
+		<script src="assets/script/CFInstall.min.js"></script>
+		<script>
+		CFInstall.check({
+			mode: "new",
+			url: "download_chrome_frame.html",
+			destination: window.location
+		});
+		</script>
 		<link rel="stylesheet" href="assets/css/default.css" />
 		<link rel="stylesheet" href="assets/css/jquery-ui-custom-theme/jquery-ui-1.8.10.custom.css" />
 		<script src="assets/script/jquery-1.5.min.js"></script>
 		<script src="assets/script/jquery-ui-1.8.10.custom.min.js"></script>
 		<script src="assets/script/jquery.select.js"></script>
 		<script src="assets/script/jquery.dateSelect.js"></script>
-		<script src="assets/script/Highcharts-2.1.4/js/highcharts.js"></script>
+		<script src="assets/script/highcharts.js"></script>
 		<script src="assets/script/base.js"></script>
 		<script src="assets/script/indicator_analysis.js"></script>
 		<script src="assets/script/charts.js"></script>
@@ -21,7 +29,7 @@
 				<h1 class="system-name">中国移动通信-北京移动分公司KPI监控</h1>
 				<div class="nav">
 					<ul>
-						<li><a class="nav-l" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
+						<li><a class="nav-l selected" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
 						<li><a class="nav-r" id="nav-indicator" href="indicator_detail.html" title="查看各指标数据">关键指标</a></li>
 					</ul>
 				</div>

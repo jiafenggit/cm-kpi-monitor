@@ -69,6 +69,26 @@ objMapDict = (function(){
 	return obj;
 })();
 
+//系统导航
+$(function(){
+	$("#nav-map, #nav-indicator").bind("click", function(e){
+		e.preventDefault();
+
+		var target = $(e.target);
+
+		if( target.hasClass("selected") ){
+			return
+		} else {
+			//切换选中的样式
+			$("#header div.nav a.selected").removeClass("selected");
+			target.addClass("selected");
+			
+			var href = target.attr("href");
+			//刷新iframe......
+		}
+	});
+});
+
 })( jQuery );
 
 function getArea(){
