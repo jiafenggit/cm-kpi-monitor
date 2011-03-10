@@ -78,7 +78,8 @@ $.fn.dateSelect = function(setting){
 					top: top,
 					left: left - 4,
 					width: config.width || select.width(),
-					textAlign: "left"
+					textAlign: "left",
+					zIndex:100001
 				}
 			});
 

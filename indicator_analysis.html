@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="chrome=1"> 
 		<title></title>
+		<!--
 		<script src="assets/script/CFInstall.min.js"></script>
 		<script>
 		CFInstall.check({
@@ -12,6 +13,7 @@
 			destination: window.location
 		});
 		</script>
+		-->
 		<link rel="stylesheet" href="assets/css/default.css" />
 		<link rel="stylesheet" href="assets/css/jquery-ui-custom-theme/jquery-ui-1.8.10.custom.css" />
 		<script src="assets/script/jquery-1.5.min.js"></script>
@@ -89,7 +91,17 @@
 							</table>
 						</div>
 					</div>
-					<div id="chart" class="chart">
+					<div id="chartWrap">
+						<div id="category-chart" class="category-chart">
+							<ul>
+								<li><a class="category-chart-l selected" href="#">地图</a></li>
+								<li><a href="#">趋势</a></li>
+								<li><a class="category-chart-r" href="#">渠道</a></li>
+							</ul>
+						</div>
+						<div id="chart" class="chart">
+							
+						</div>
 					</div>
 					<select id="chooseChart">
 						<option value="0">area</option>

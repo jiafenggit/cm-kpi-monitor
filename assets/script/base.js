@@ -6,7 +6,7 @@ arrMapDict = [{
 		"rank": "1"
 	}, {
 		"value": "2",
-		"text": "门头沟区",
+		"text": "西区分公司",
 		"rank": "3"
 	}, {
 		"value": "3",
@@ -50,7 +50,7 @@ arrMapDict = [{
 		"rank": "3"
 	}, {
 		"value": "13",
-		"text": "丰台区",
+		"text": "南区分公司",
 		"rank": "2"
 	}, {
 		"value": "14",
@@ -84,6 +84,7 @@ $(function(){
 			target.addClass("selected");
 			
 			var href = target.attr("href");
+			alert("我在assets/script/base.js中，过来找我吧:)");
 			//刷新iframe......
 		}
 	});

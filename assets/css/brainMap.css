@@ -5,7 +5,7 @@
 	.brain-map-node-txt{
 		display:block; 
 		float:left; 
-		width:126px;
+		width:150px;
 		margin-top:0px;
 	}
 	.brain-map-node-children{
@@ -35,10 +35,28 @@
 				width:26px;
 				height:61px;
 				background:url(../img/brain_map_node_last.png) 0 -152px no-repeat; }
+			.brain-map-node-up,
+			.brain-map-node-down,
+			.brain-map-node-keep{
+				display:block; 
+				float:right; 
+				width:24px;
+				height:61px;
+				background:url(../img/brain_map_node_icon.png) -24px 0 no-repeat;
+			}
+			.brain-map-node-down{background-position: 0 0;}
+			.brain-map-node-keep{background-position: -48px 0;}
 			.brain-map-node-btn{
-				margin-left:26px;
+				margin: 0 24px 0 26px;  
 				text-align:center;
+				cursor:pointer;
 				font-size:14px;
 				background:url(../img/brain_map_node.png) center 32px no-repeat;
 				padding-bottom:25px;
 				padding-top: 15px;}
+				.brain-map-node-btn.current{
+					background:url(../img/brain_map_node_current.png) 0 0 no-repeat; 
+				}
+				.brain-map-node-btn.selected{
+					background:url(../img/brain_map_node_selected.png) 0 0 no-repeat; 
+				}

@@ -58,7 +58,7 @@ $.fn.brainMap = function(setting){
 
 	//创建思维导图一个节点
 	var createNode = function(nodeJSON, opt){
-		var c;
+		var c, state, delta, $dom;
 
 		if(opt.isFirstNode){
 			c = "brain-map-node-first";
@@ -68,11 +68,44 @@ $.fn.brainMap = function(setting){
 			c = "brain-map-node-middle";
 		}
 
-		return $("<li><div class='brain-map-node clearfix'>" + 
+		if (nodeJSON.state == null) {
+			state = "";
+		} else {
+			state = nodeJSON.state;
+		}
+
+		if (nodeJSON.delta == 1) {
+			delta = "brain-map-node-up";
+		} else if (nodeJSON.delta == -1) {
+			delta = "brain-map-node-down";
+		} else {
+			delta = "brain-map-node-keep";
+		}
+
+		$dom = $("<li><div class='brain-map-node clearfix'>" + 
 				"<div class=brain-map-node-txt><div class=" + c + 
-				"></div><div class=brain-map-node-btn>" + 
+				"></div><div class=" + delta + "></div><div class='brain-map-node-btn " + state + "'>" + 
 				nodeJSON.text.substring(0, 5) + "</div></div>" + 
 				"<ul class=brain-map-node-children /></div></li>");
+
+		$dom.find(".brain-map-node-btn").bind("click", function(e){
+			e.preventDefault();
+
+			var $this = $(this);
+			var isSelect = true;
+
+			if ( $this.hasClass("selected") ) {
+				isSelect = false;
+				$this.removeClass("selected");
+			} else {
+				$(".brain-map-node-btn.selected").removeClass("selected");
+				$this.addClass("selected");
+			}
+			
+			config.onSelect(e, isSelect);
+		});
+
+		return $dom;
 	};
 
 	//根据JSON数据生成思维导图的DOM结构,使用递归...
@@ -133,7 +166,7 @@ $.fn.brainMap = function(setting){
 };
 
 $.fn.select.settings = {
-	
+	onSelect: function(e){}
 };
 
 })( jQuery );
