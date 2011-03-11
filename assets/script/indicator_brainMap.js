@@ -122,7 +122,25 @@ brainMapJSON_test = [{
 		delta: 0,
 		rel: 1,
 		state: null,
-		children: []
+		children: [{
+			text: "净增客户数",
+			delta: 0,
+			rel: 3,
+			state: "current",
+			children: []
+		}, {
+			text: "净增客户数",
+			delta: 0,
+			rel: 3,
+			state: "current",
+			children: []
+		}, {
+			text: "净增客户数",
+			delta: 0,
+			rel: 3,
+			state: "current",
+			children: []
+		}]
 	}, {
 		text: "G3客户净增",
 		delta: -1,
