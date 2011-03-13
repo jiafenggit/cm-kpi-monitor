@@ -19,65 +19,57 @@ $.fn.brainMap = function(setting){
 				level = 8;
 			}
 			
-			var $this = $(dom);
-			var $brother = $this.siblings();
-			var delta,
+			var $this = $(dom),
+				$brother = $this.siblings(),
+				delta,
 				offsetTop,
 				offsetLeft,
-				width = $this.width();
-		
-			var	$first = $brother.eq(0).find(".brain-map-node-txt:first");
+				width = $this.width(),
+				bgOffset;
 			
 			if ($brother.size() < 1) {
 				return
-			} else if($brother.size() == 1) {
-				delta = level;
-				
-				offsetTop = $first.position().top 
-								+ $first.height() / 2
-								+ parseInt( $first.css("marginTop"), 10 ) 
-								- delta/2;
+			}
+
+			var	$first = $brother.eq(0).find(".brain-map-node-txt:first"),
+				$firstTop = $first.position().top + parseInt( $first.css("marginTop"), 10 ),
+				$firstLeft = $first.position().left,
+				$firstHeight = $first.height();
 			
-				offsetLeft = $first.position().left 
-								- $this.width() 
-								+ level + 10;
+			if($brother.size() == 1) {
+				delta = level;
+				offsetTop = $firstTop + $firstHeight / 2 - delta / 2;
+				offsetLeft = $firstLeft - width + level;
 
+				bgOffset = "center";
 			} else {
+				var $last = $brother.eq( $brother.size() - 1 ).find(".brain-map-node-txt:first"),
+					$lastTop = $last.position().top + parseInt( $last.css("marginTop"), 10 ),
 
-				width = width - level;
+				width = width;
+				delta = $lastTop - $firstTop - $firstHeight + 1;
+				offsetTop = $firstTop + $firstHeight - 1;
+				offsetLeft = $firstLeft - width + level;
 
-				var $last = $brother.eq($brother.size()-1).find(".brain-map-node-txt:first");
-
-				delta = $last.position().top 
-							+ parseInt( $last.css("marginTop"), 10 ) 
-							- $first.position().top 
-							- $first.height() 
-							- parseInt( $first.css("marginTop"), 10 ) 
-							+ 1;
-
-				offsetTop = $first.position().top 
-								+ $first.height() 
-								+ parseInt( $first.css("marginTop"), 10 ) 
-								- 1;
 				
+				bgOffset = 501
+							+ parent.prev().position().top
+							+ parseInt( parent.prev().css("marginTop"), 10 )
+							+ parent.prev().height()/2
+							- $firstTop
+							- $firstHeight;
 
-				offsetLeft = $first.position().left 
-								- width
-								+ level;
+				if (bgOffset < 502) {
+					bgOffset = 500 + level/2;
+				}
 
+				bgOffset += "px"
+
+				//处理当只有两个子节点且此两节点均无子节点的情况
 				if(delta == 1){
 					delta = level;
-
-					offsetTop = $first.position().top 
-									+ $first.height() 
-									+ parseInt( $first.css("marginTop"), 10 ) 
-									- delta/2;
-					
-
-					offsetLeft = $first.position().left 
-									- width
-									+ level;
-					
+					offsetTop = $firstTop + $firstHeight - delta/2;
+					bgOffset = "center";
 				}
 			}
 
@@ -85,43 +77,50 @@ $.fn.brainMap = function(setting){
 				height: delta,
 				top: offsetTop,
 				left: offsetLeft,
-				width: width
+				width: width,
+				backgroundPosition:"right " + bgOffset
 			});
 		});
 	};
 
-	var positionNode = function(parent){
-		var children = parent.next(".brain-map-node-children").children();
-		var num = children.size() - 1;
-		var parentOffset;
-		var offset = [];
+	var positionNode = function(node){
+		var parent =  node.next(".brain-map-node-children"),
+			children = parent.children(),
+			num = children.size() - 1,
+			nodeOffset,
+			parentOffset = [];
 		
 		if(num < 1) return
 
 		for (var i = 0; i < num; i++) {
-			var node = children.eq(i).find(".brain-map-node-txt:first");
-			positionNode(node);
-
-			if(i == 0 || i == num - 1){
-				offset.push(node.position().top + node.height()/2 + parseInt( node.css("marginTop"), 10 ));
-			}
+			positionNode( children.eq(i).find(".brain-map-node-txt:first") );
+			//offset.push(node.position().top + node.height()/2 + parseInt( node.css("marginTop"), 10 ));
 		}
 
-		if(offset.length > 1){
-			offset = (offset[0] + offset[1])/2;
-		} else {
-			offset = offset[0];
+		parentOffset = parent.position().top 
+						+ parent.height()/2 
+						+ parseInt( parent.css("marginTop"), 10 );
+
+		nodeOffset = node.position().top 
+						+ node.height()/2;
+
+		var nodeMargin = Math.floor(parentOffset - nodeOffset)
+		node.css("marginTop", nodeMargin);
+/*
+		if(num > 1){
+			nodeOffset = nodeOffset + nodeMargin;
+			var child = children.eq(0).find(".brain-map-node-txt:first");
+			var childOffset = child.position().top 
+								+ child.height()
+								+ parseInt( child.css("marginTop"), 10 );
+			if(nodeOffset <= childOffset) node.css("marginTop", nodeMargin + childOffset - nodeOffset + 9)
 		}
-
-
-		parentOffset = parent.position().top + parent.height()/2;
-
-		parent.css("marginTop", Math.floor(offset - parentOffset));
+*/
 	};
 
 	//创建思维导图一个节点
 	var createNode = function(nodeJSON, opt){
-		var c, state, delta, $dom;
+		var c, state, delta, trigger, $dom;
 
 		if(opt.isFirstNode){
 			c = "brain-map-node-first";
@@ -145,16 +144,19 @@ $.fn.brainMap = function(setting){
 			delta = "brain-map-node-keep";
 		}
 
+		trigger = nodeJSON.children.length > 0 ? "<span class=brain-map-node-btn-trigger />" : "";
+
 		$dom = $("<li><div class='brain-map-node clearfix'>" + 
 				"<div class=brain-map-node-txt><div class=" + c + 
-				"></div><div class='brain-map-node-btn-wrap " + state + "'><div class=" + delta + ">" + 
-				nodeJSON.text.substring(0, 5) + "</div><div class=brain-map-node-btn></div></div></div>" + 
+				"></div><div class='brain-map-node-btn-wrap " + state + "'><div class=" + 
+				delta + "><span class=brain-map-node-txt-trigger title=" + nodeJSON.text + ">" + 
+				nodeJSON.text.substring(0, 6) + "</span></div><div class=brain-map-node-btn>" + trigger + "</div></div></div>" + 
 				"<ul class='brain-map-node-children brain-map-node-l" + opt.level + "' /></div></li>");
 
-		$dom.find(".brain-map-node-btn").bind("click", function(e){
+		$dom.find("span.brain-map-node-txt-trigger").bind("click", function(e){
 			e.preventDefault();
 
-			var $this = $(this.parentNode);
+			var $this = $(this.parentNode.parentNode);
 			var isSelect = true;
 
 			if ( $this.hasClass("selected") ) {
@@ -166,10 +168,33 @@ $.fn.brainMap = function(setting){
 			}
 			
 			config.onSelect(e, isSelect);
-		});
+		}).data("data", nodeJSON.data);
+
+		$dom.find("span.brain-map-node-btn-trigger").toggle( eventHideChildren, eventShowChildren );
 
 		return $dom;
 	};
+
+
+	var eventHideChildren = function(e){
+		var target = $(e.target);
+		var $this = target.parents(".brain-map-node-txt");
+		var parent = $this.next();
+
+		target.addClass("collapse");
+		parent.hide();
+		positionBar();
+	}
+
+	var eventShowChildren = function(e){
+		var target = $(e.target);
+		var $this = target.parents(".brain-map-node-txt");
+		var parent = $this.next();
+
+		target.removeClass("collapse");
+		parent.show();
+		positionBar();
+	}
 
 	//根据JSON数据生成思维导图的DOM结构,使用递归...
 	var init = function(arrJSON, level){
@@ -177,10 +202,9 @@ $.fn.brainMap = function(setting){
 		var arr = [];
 
 		for(var i = 0; i < arrJSON.length; i++) {
-			var node = arrJSON[i];
-			var arrChildren = 0;
-			var $node = null;
-			var $node_c = null;
+			var node = arrJSON[i],
+				arrChildren = 0,
+				$node = $node_c = null;
 
 			var nodeOpt = {
 				isFirstNode: false,
@@ -223,7 +247,9 @@ $.fn.brainMap = function(setting){
 		var dom = init(config.json, 1);
 		$this.append(dom[0]);
 
-		positionNode( $this.find(".brain-map-node-txt:first") );
+		$.fn.select.root = $this.find(".brain-map-node-txt:first")
+
+		positionNode( $.fn.select.root );
 		positionBar();
 	});
 

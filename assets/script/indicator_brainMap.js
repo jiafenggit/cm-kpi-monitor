@@ -5,69 +5,45 @@
 brainMapJSON = [{
 	text: "销售分类",
 	delta: 0,
-	rel: 0,
+	data: {id:0},
 	state: null,
 	children: [{
 		text: "客户发展",
 		delta: 1,
-		rel: 1,
+		data: {id:1},
 		state: null,
 		children: [{
 			text: "净增客户数",
 			delta: 0,
-			rel: 3,
+			data: {id:2},
 			state: "current",
 			children: [{
 				text: "新增客户数",
 				delta: 0,
-				rel: 6,
+				data: {id:3},
 				state: null,
 				children: [{
 					text: "测试1",
 					delta: 0,
-					rel: 6,
+					data: {id:4},
 					state: null,
 					children: []
 				}, {
 					text: "测试2",
 					delta: 0,
-					rel: 6,
+					data: {id:5},
 					state: null,
 					children: []
 				}, {
 					text: "测试2",
 					delta: 0,
-					rel: 6,
+					data: {id:6},
 					state: null,
 					children: []
 				}, {
 					text: "测试2",
 					delta: 0,
-					rel: 6,
-					state: null,
-					children: []
-				}, {
-					text: "测试2",
-					delta: 0,
-					rel: 6,
-					state: null,
-					children: []
-				}, {
-					text: "测试2",
-					delta: 0,
-					rel: 6,
-					state: null,
-					children: []
-				}, {
-					text: "测试2",
-					delta: 0,
-					rel: 6,
-					state: null,
-					children: []
-				}, {
-					text: "测试2",
-					delta: 0,
-					rel: 6,
+					data: {id:7},
 					state: null,
 					children: []
 				}]
@@ -75,38 +51,86 @@ brainMapJSON = [{
 		}, {
 			text: "新增价值客户存活率贡献度",
 			delta: 0,
-			rel: 4,
+			data: {id:8},
 			state: null,
 			children: [{
 				text: "新增价值客户存活率",
 				delta: 0,
-				rel: 7,
+				data: {id:9},
 				state: null,
-				children: []
+				children: [{
+					text: "测试2",
+					delta: 0,
+					data: {id:10},
+					state: null,
+					children: []
+				}, {
+					text: "测试2",
+					delta: 0,
+					data: {id:11},
+					state: null,
+					children: [{
+						text: "测试2",
+						delta: 0,
+						data: {id:11},
+						state: null,
+						children: [{
+							text: "测试2",
+							delta: 0,
+							data: {id:11},
+							state: null,
+							children: []
+						}, {
+							text: "测试2",
+							delta: 0,
+							data: {id:12},
+							state: null,
+							children: []
+						}]
+					}, {
+						text: "测试2",
+						delta: 0,
+						data: {id:12},
+						state: null,
+						children: []
+					}]
+				}, {
+					text: "测试2",
+					delta: 0,
+					data: {id:12},
+					state: null,
+					children: []
+				}]
 			}]
 		}, {
 			text: "客户发展贡献度",
 			delta: 0,
-			rel: 5,
+			data: {id:13},
 			state: null,
 			children: [{
-				text: "净增客户数",
+				text: "客户发展贡献度",
 				delta: 0,
-				rel: 8,
+				data: {id:14},
 				state: null,
-				children: []
-			}, {
-				text: "客户发展增幅",
-				delta: 0,
-				rel: 9,
-				state: null,
-				children: []
-			}]
+				children: [{
+					text: "净增客户数",
+					delta: 0,
+					data: {id:15},
+					state: null,
+					children: []
+				}, {
+					text: "客户发展增幅",
+					delta: 0,
+					data: {id:16},
+					state: null,
+					children: []
+				}]
+			}]	
 		}]
 	}, {
 		text: "G3客户净增",
 		delta: -1,
-		rel: 2,
+		data: {id:17},
 		state: null,
 		children: []
 	}]
@@ -133,7 +157,19 @@ brainMapJSON_test = [{
 			delta: 0,
 			rel: 3,
 			state: "current",
-			children: []
+			children: [{
+				text: "净增客户数",
+				delta: 0,
+				rel: 3,
+				state: "current",
+				children: []
+			}, {
+				text: "净增客户数",
+				delta: 0,
+				rel: 3,
+				state: "current",
+				children: []
+			}]
 		}, {
 			text: "净增客户数",
 			delta: 0,
@@ -224,6 +260,9 @@ $(function(){
 	$("#brainMap ul.root").brainMap({
 		json:brainMapJSON,
 		onSelect: function(e, isSelected){
+			var data = $(e.target).data("data");
+			alert(data.id);
+
 			if(isSelected){
 				//更新面板数据
 				$("#indicator-selected h5").text($(e.target).text());
@@ -234,11 +273,10 @@ $(function(){
 		}
 	});
 
-	/*
-	$( ".stage-inner" ).mouscroll({
+	$( ".stage" ).mouscroll({
 		handle: ".stage-inner",
-		cancel: ""
-	}); */
+		cancel: ".brain-map-node-txt"
+	}); 
 
 });
 
