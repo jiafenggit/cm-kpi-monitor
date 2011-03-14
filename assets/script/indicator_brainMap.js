@@ -6,12 +6,12 @@ brainMapJSON = [{
 	text: "销售分类",
 	delta: 0,
 	data: {id:0},
-	state: null,
+	state: "",
 	children: [{
 		text: "客户发展",
 		delta: 1,
 		data: {id:1},
-		state: null,
+		state: "",
 		children: [{
 			text: "净增客户数",
 			delta: 0,
@@ -21,30 +21,30 @@ brainMapJSON = [{
 				text: "新增客户数",
 				delta: 0,
 				data: {id:3},
-				state: null,
+				state: "",
 				children: [{
 					text: "测试1",
 					delta: 0,
 					data: {id:4},
-					state: null,
+					state: "",
 					children: []
 				}, {
 					text: "测试2",
 					delta: 0,
 					data: {id:5},
-					state: null,
+					state: "",
 					children: []
 				}, {
 					text: "测试2",
 					delta: 0,
 					data: {id:6},
-					state: null,
+					state: "",
 					children: []
 				}, {
 					text: "测试2",
 					delta: 0,
 					data: {id:7},
-					state: null,
+					state: "",
 					children: []
 				}]
 			}]
@@ -52,53 +52,53 @@ brainMapJSON = [{
 			text: "新增价值客户存活率贡献度",
 			delta: 0,
 			data: {id:8},
-			state: null,
+			state: "",
 			children: [{
 				text: "新增价值客户存活率",
 				delta: 0,
 				data: {id:9},
-				state: null,
+				state: "",
 				children: [{
 					text: "测试2",
 					delta: 0,
 					data: {id:10},
-					state: null,
+					state: "",
 					children: []
 				}, {
 					text: "测试2",
 					delta: 0,
 					data: {id:11},
-					state: null,
+					state: "",
 					children: [{
 						text: "测试2",
 						delta: 0,
 						data: {id:11},
-						state: null,
+						state: "",
 						children: [{
 							text: "测试2",
 							delta: 0,
 							data: {id:11},
-							state: null,
+							state: "",
 							children: []
 						}, {
 							text: "测试2",
 							delta: 0,
 							data: {id:12},
-							state: null,
+							state: "",
 							children: []
 						}]
 					}, {
 						text: "测试2",
 						delta: 0,
 						data: {id:12},
-						state: null,
+						state: "",
 						children: []
 					}]
 				}, {
 					text: "测试2",
 					delta: 0,
 					data: {id:12},
-					state: null,
+					state: "",
 					children: []
 				}]
 			}]
@@ -106,23 +106,23 @@ brainMapJSON = [{
 			text: "客户发展贡献度",
 			delta: 0,
 			data: {id:13},
-			state: null,
+			state: "",
 			children: [{
 				text: "客户发展贡献度",
 				delta: 0,
 				data: {id:14},
-				state: null,
+				state: "",
 				children: [{
 					text: "净增客户数",
 					delta: 0,
 					data: {id:15},
-					state: null,
+					state: "",
 					children: []
 				}, {
 					text: "客户发展增幅",
 					delta: 0,
 					data: {id:16},
-					state: null,
+					state: "",
 					children: []
 				}]
 			}]	
@@ -131,8 +131,20 @@ brainMapJSON = [{
 		text: "G3客户净增",
 		delta: -1,
 		data: {id:17},
-		state: null,
-		children: []
+		state: "",
+		children: [{
+			text: "净增客户数",
+			delta: 0,
+			data: {id:15},
+			state: "",
+			children: []
+		}, {
+			text: "客户发展增幅",
+			delta: 0,
+			data: {id:16},
+			state: "",
+			children: []
+		}]
 	}]
 }];
 
@@ -140,12 +152,12 @@ brainMapJSON_test = [{
 	text: "销售分类",
 	delta: 0,
 	rel: 0,
-	state: null,
+	state: "",
 	children: [{
 		text: "客户发展",
 		delta: 0,
 		rel: 1,
-		state: null,
+		state: "",
 		children: [{
 			text: "净增客户数",
 			delta: 0,
@@ -181,7 +193,7 @@ brainMapJSON_test = [{
 		text: "G3客户净增",
 		delta: -1,
 		rel: 2,
-		state: null,
+		state: "",
 		children: []
 	}]
 }];
