@@ -58,12 +58,12 @@ $.fn.brainMap = function(setting){
 									+ parseInt( node.css("marginTop"), 10 )
 									+ node.height() / 2;
 
-				bgOffset = 501 + nodeOffset
+				bgOffset = 2501 + nodeOffset
 							- $firstTop
 							- $firstHeight;
 
-				if (bgOffset < 502) {
-					bgOffset = 500 + level/2;
+				if (bgOffset < 2502) {
+					bgOffset = 2500 + level/2;
 				}
 
 				bgOffset += "px"
