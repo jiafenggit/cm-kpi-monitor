@@ -1,5 +1,3 @@
-
-
 ;(function( $ ) {
 
 brainMapJSON = [{
@@ -148,56 +146,6 @@ brainMapJSON = [{
 	}]
 }];
 
-brainMapJSON_test = [{
-	text: "销售分类",
-	delta: 0,
-	rel: 0,
-	state: "",
-	children: [{
-		text: "客户发展",
-		delta: 0,
-		rel: 1,
-		state: "",
-		children: [{
-			text: "净增客户数",
-			delta: 0,
-			rel: 3,
-			state: "current",
-			children: []
-		}, {
-			text: "净增客户数",
-			delta: 0,
-			rel: 3,
-			state: "current",
-			children: [{
-				text: "净增客户数",
-				delta: 0,
-				rel: 3,
-				state: "current",
-				children: []
-			}, {
-				text: "净增客户数",
-				delta: 0,
-				rel: 3,
-				state: "current",
-				children: []
-			}]
-		}, {
-			text: "净增客户数",
-			delta: 0,
-			rel: 3,
-			state: "current",
-			children: []
-		}]
-	}, {
-		text: "G3客户净增",
-		delta: -1,
-		rel: 2,
-		state: "",
-		children: []
-	}]
-}];
-
 function _getPageSize() {
 	var xScroll, yScroll;
 	if (window.innerHeight && window.scrollMaxY) {	
@@ -242,7 +190,6 @@ function _getPageSize() {
 };
 
 function calcBrainMapSize(){
-	
 	var viewHeight = _getPageSize()[3],
 		offset = $("#brainMap").offset(),
 		mapTop = offset.top;
@@ -253,8 +200,7 @@ function calcBrainMapSize(){
 $(function(){
 	calcBrainMapSize();
 	window.onresize = calcBrainMapSize;
-			
-
+	
 	$("#areaSelector").select({
 		option: arrMapDict, 
 		width: 300,
@@ -269,10 +215,10 @@ $(function(){
 		}
 	});
 
+	//初始化脑图
 	$("#brainMap ul.root").brainMap({
 		json:brainMapJSON,
-		onSelect: function(e, isSelected){
-			var data = $(e.target).data("data");
+		onSelect: function(e, data, isSelected){
 			alert(data.id);
 
 			if(isSelected){
@@ -285,6 +231,7 @@ $(function(){
 		}
 	});
 
+	//添加脑图画布的拖动事件
 	$( ".stage" ).mouscroll({
 		handle: ".stage-inner",
 		cancel: ".brain-map-node-txt"

@@ -1,5 +1,5 @@
 ﻿#content{padding:0 5px;}
-.brain-map{background:#fff; width:960px; overflow:auto;}
+.brain-map{background:#fff; width:960px; overflow:auto; height:200px; }
 .brain-map .stage-inner-wrap{width:9960px; height:100%; }
 .brain-map .stage-inner{position:relative; padding-top:20px; cursor:move;}
 .brain-map-node{}

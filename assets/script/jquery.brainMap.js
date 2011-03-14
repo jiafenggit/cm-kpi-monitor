@@ -142,7 +142,7 @@ $.fn.brainMap = function(setting){
 						+ "<ul class='brain-map-node-children brain-map-node-l" + opt.level + "' />"
 					+"</div></li>");
 
-		$dom.find("span.brain-map-node-txt-trigger").bind("click", function(e){
+		$dom.find("span.brain-map-node-txt-trigger").bind("click", {"data": nodeJSON.data}, function(e){
 			e.preventDefault();
 
 			var $this = $(this.parentNode.parentNode),
@@ -156,9 +156,9 @@ $.fn.brainMap = function(setting){
 				$this.addClass("selected");
 			}
 			
-			config.onSelect(e, isSelect);
+			config.onSelect(e, e.data.data, isSelect);
 
-		}).data("data", nodeJSON.data);
+		});
 
 		$dom.find("span.brain-map-node-btn-trigger").click( eventToggleHideChildren );
 
@@ -248,7 +248,7 @@ $.fn.brainMap = function(setting){
 };
 
 $.fn.brainMap.settings = {
-	onSelect: function(e){},
+	onSelect: function(){},
 	collapse: true
 };
 
