@@ -43,7 +43,7 @@
 			.brain-map-node-middle{
 				background:url(../img/brain_map_node.png) left 28px no-repeat; 
 			}
-				.brain-map-node-l1 .brain-map-node-middle{background-image:url(../img/brain_map_node_1.png);}
+				/*.brain-map-node-l1 .brain-map-node-middle{background-image:url(../img/brain_map_node_1.png);}*/
 				.brain-map-node-l2 .brain-map-node-middle{background-image:url(../img/brain_map_node_2.png);}
 				.brain-map-node-l3 .brain-map-node-middle{background-image:url(../img/brain_map_node_3.png);}
 
@@ -108,3 +108,18 @@
 				.brain-map-node-btn-wrap.selected{
 					background:url(../img/brain_map_node_selected.png) 0 0 no-repeat; 
 				}
+				.brain-map-node-btn-wrap.rootnode{
+					background:url(../img/brain_map_node_rootnode.png) 0 32px no-repeat; 
+				}
+					.brain-map-node-btn-wrap.rootnode .brain-map-node-btn{background:none; }
+					.brain-map-node-btn-wrap.rootnode .brain-map-node-btn-trigger{
+						display:block; 
+						height:25px; 
+						width:80px; 
+						margin-left: 8px;
+						cursor:pointer;
+						background:url(../img/brain_map_node_1.png) -120px center no-repeat;
+					}
+					.brain-map-node-btn-wrap.rootnode .brain-map-node-btn-trigger:hover{background:url(../img/brain_map_node_1_hover.png) -120px center no-repeat;}
+					.brain-map-node-btn-wrap.rootnode .brain-map-node-btn-trigger.collapse{background:url(../img/brain_map_node_1_close.png) -120px center no-repeat;}
+					.brain-map-node-btn-wrap.rootnode .brain-map-node-btn-trigger.collapse:hover{background:url(../img/brain_map_node_1_close_hover.png) -120px center no-repeat;}
