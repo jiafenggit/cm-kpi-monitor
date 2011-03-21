@@ -4,6 +4,18 @@
 		<meta charset="utf-8" />
 		<title></title>
 		<link rel="stylesheet" href="assets/css/default.css" />
+		<script src="assets/script/jquery-1.5.min.js"></script>
+		<script>
+			$(function(){
+				var timer = setInterval(function(){
+					var ua = navigator.userAgent;
+					if (ua.indexOf("chromeframe")) {
+						clearInterval(timer);
+						location.href = location.href;
+					}
+				}, 2000);
+			});
+		</script>
 	</head>
 	<body id="body-map">
 		<div class="container">

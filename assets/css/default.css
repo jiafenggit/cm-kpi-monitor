@@ -283,7 +283,7 @@ a.disabled:hover { text-decoration: none; }
 
 		div.indicatorData table{width:100%; }
 			div.indicatorData tr{height:40px; }
-			div.indicatorData td.data-name{color:#1657B2; font-size:20px; font-weight:bold;}
+			div.indicatorData td.data-name{color:#1657B2; font-size:20px; font-weight:bold; text-align:left;}
 			div.indicatorData td.data-value{text-align:right; font-size:18px;}
 			div.indicatorData td.data-delta{text-align:right;}
 				div.indicatorData td.data-delta .plus{padding-right:25px; background:url(../img/arrow_up.png) right center no-repeat; }
@@ -393,11 +393,11 @@ ul.related-indicator-list{margin:0 20px 10px 0; float:left; }
 	ul.related-indicator-list li{float:left; margin-left:20px; width:450px; background:url(../img/related_indicator_bg.png) 0 0 no-repeat; }
 		ul.related-indicator-list li:hover{background-position:0 -45px; }
 		ul.related-indicator-list li table{width:100%; }
-			ul.related-indicator-list li table tr{height:45px;}
-			ul.related-indicator-list li table td{padding:0 10px;}
+			ul.related-indicator-list li table tr{height:45px; overflow:hidden; }
+			ul.related-indicator-list li table td{padding:0 10px; }
 				ul.related-indicator-list li table td.data-value{text-align:right;}
-				ul.related-indicator-list li table td a{font-size:1.5em;}
-				ul.related-indicator-list li table td span{font-size:1.2em;}
+				ul.related-indicator-list li table td a{font-size:1.3em; text-overflow:ellipsis; white-space:nowrap; overflow:hidden; width:240px; display:block; }
+				ul.related-indicator-list li table td span{font-size:1em;}
 
 /* download_chrome_frame */
 .sorry{font-size:2.4em; text-align:center; margin-top:20px;}

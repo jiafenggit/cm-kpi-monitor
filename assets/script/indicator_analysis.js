@@ -63,6 +63,13 @@ $(function(){
 		buttonImage: "assets/img/transparet_datepicker.png",
 		buttonImageOnly: true,
 		dateFormat: "yy-mm-dd",
+		beforeShow: function () {
+			setTimeout(
+				function () {
+					$('#ui-datepicker-div').css("z-index", 1000000001);
+				}, 100
+			);
+		},
 		onSelect: function(date){
 			var arrDate = date.split("-")
 			var cnDate = arrDate[0] + "年" + arrDate[1] + "月" + arrDate[2] + "日";
