@@ -3,14 +3,13 @@
 $.fn.brainMap = function(setting){
 
 	var config = $.extend({}, $.fn.brainMap.settings, setting);
-
 	var colorIndex = 0;
 
 	function getChildren_W_H(children){
 		var max = 0,
 			height = 0;
 
-		children.each(function(i){
+		children.each(function(){
 			var $this = $(this),
 				w = $this.width(),
 				h = $this.height();
@@ -37,19 +36,18 @@ $.fn.brainMap = function(setting){
 			firstChildNode = firstChild.children("div.bm-node"),
 			lastChildNode = lastChild.children("div.bm-node");
 
-		var firstChildNodeHeight = firstChildNode.height(),
-			firstChildNodeTop = firstChildNode.position().top,
-			parentHeight = parent.height(),
-			firstChildHeight = firstChild.height(),
+		var firstChildHeight = firstChild.height(),
 			lastChildHeight = lastChild.height(),
-			lastChildNodeTop = lastChildNode.position().top;
+			firstChildNodeHeight = firstChildNode.height(),
+			firstChildNodeTop = firstChildNode.position().top,
+			lastChildNodeTop = lastChildNode.position().top,
+			parentHeight = parent.height();
 
-		
-		branchHeight = parent.height() 
-					- firstChild.height() 
-					- lastChild.height() 
-					+ firstChildNode.position().top
-					+ lastChildNode.position().top;
+		branchHeight = parentHeight 
+						- firstChildHeight
+						- lastChildHeight 
+						+ firstChildNodeTop
+						+ lastChildNodeTop;
 
 		if ( firstChild.hasClass("bm-node-level-1") ) {
 			level = 16;
@@ -60,8 +58,7 @@ $.fn.brainMap = function(setting){
 		}
 
 		branchTop = firstChildHeight - firstChildNodeTop;
-		bgPosition =  -5000 
-						+  parentHeight / 2 
+		bgPosition =  -5000 +  parentHeight / 2 
 						- firstChildNodeTop 
 						- firstChildNodeHeight;
 
@@ -69,23 +66,24 @@ $.fn.brainMap = function(setting){
 			branchHeight = level;
 
 			if (children.size() == 1) {
-				branchTop = parentHeight / 2 - level/2;
+				branchTop = ( parentHeight - level ) / 2;
 			} else {
-				branchTop -= level/2;
+				branchTop -= level / 2;
 			}
 
 			bgPosition = -4996;
-
-			
 		}
 
-		if ( (firstChildNodeHeight + firstChildNodeTop) == parentHeight/2 
+		if ( (firstChildNodeHeight + firstChildNodeTop) == parentHeight / 2 
 			&& lastChildHeight < firstChildHeight ) {
+
 			branchTop -= level/2;
 			branchHeight += level/2;
 			bgPosition += level/2;
-		} else if ( (lastChildHeight - lastChildNodeTop) == parentHeight/2 
+
+		} else if ( (lastChildHeight - lastChildNodeTop) == parentHeight / 2 
 			&& lastChildHeight > firstChildHeight ) {
+
 			branchHeight += level/2;
 		}
 
@@ -167,6 +165,7 @@ $.fn.brainMap = function(setting){
 				"left": nodeWidth + 60
 			});
 		}
+
 		//for nodeWrap
 		if (nodeWrapPrev.size() == 1) {
 			nodeWrapOffsetTop = nodeWrapPrev.position().top + nodeWrapPrev.height();
@@ -184,7 +183,6 @@ $.fn.brainMap = function(setting){
 	};
 
 	function createNode(nodeJSON, opt){
-		
 		var delta, $dom;
 		
 		if (nodeJSON.delta == 1) {
@@ -197,16 +195,19 @@ $.fn.brainMap = function(setting){
 
 		var branchColor = (opt.level == 2) ? " color"+(colorIndex++) : "";
 		
-		$dom = $("<div class='bm-node-wrap" + " bm-node-level-" + opt.level + branchColor + "'><div class='bm-node " + opt.branchLocation + " " + nodeJSON.state + "'>" +
-					"<div class=bm-node-btn-wrap>" +
-						"<div class=bm-node-btn>" +
-							"<div class='bm-node-name " + delta + "'>" + 
-								"<span class=bm-node-name-txt>" +
-									nodeJSON.text +
-								"</span>" + 
-							"</div>" +
-						"</div>" +
-					"</div></div></div>");
+		$dom = $("<div class='bm-node-wrap" + " bm-node-level-" + opt.level + branchColor + 
+					"'></div>");
+
+		$("<div id='node-" + nodeJSON.data.id + "' class='bm-node " + opt.branchLocation + " " + nodeJSON.state + "'>" + 
+			"<div class=bm-node-btn-wrap>" +
+				"<div class=bm-node-btn>" +
+					"<div class='bm-node-name " + delta + "'>" + 
+						"<span class=bm-node-name-txt>" +
+							nodeJSON.text +
+						"</span>" + 
+					"</div>" +
+				"</div>" +
+			"</div></div>").data("data", nodeJSON.data).appendTo($dom);
 
 		if (nodeJSON.children.length != 0) {
 			$("<div class=bm-point>" +
@@ -217,7 +218,7 @@ $.fn.brainMap = function(setting){
 		}
 
 		if (nodeJSON.state != "root") {
-			$dom.find("div.bm-node-btn").bind("click", {"data": nodeJSON.data}, function(e){
+			$dom.find("div.bm-node-btn").bind("click", function(e){
 				e.preventDefault();
 
 				var $this = $(this.parentNode.parentNode),
@@ -231,7 +232,7 @@ $.fn.brainMap = function(setting){
 					$this.addClass("selected");
 				}
 				
-				config.onSelect(e, e.data.data, isSelect);
+				config.onSelect(e, $.data(this.parentNode.parentNode, "data"), isSelect);
 
 			});
 		}
@@ -251,8 +252,6 @@ $.fn.brainMap = function(setting){
 			node = point.prev(),
 			nodeWrap = node.parent();
 			
-			
-
 		pointBtn.toggleClass("collapse");
 		branch.toggle();
 		parent.toggle();
@@ -501,17 +500,92 @@ $.fn.brainMap = function(setting){
 		stageWrap.scrollLeft = 300;
 	};
 
+	$.fn.brainMap.updateIndicate = function(type){
+		var $stage = config.stage,
+			$stageWrap = $stage.parent().parent();
+
+		if (type == "open") {
+			var loading = $("<div />", {
+					"class": "update-loading",
+					html: $("<span />", {
+						text: "正在加载...",
+						css: {
+							background:"#ffff99",
+							padding: "0 10px",
+							margin: "0 auto",
+							fontSize: "1.2em"
+						}
+					}),
+					css: {
+						position: "fixed",
+						height: $stageWrap.height(),
+						width : $stageWrap.width(),
+						textAlign:"center",
+						"zIndex": 100001,
+						display: "none"
+					}
+				});
+				
+			loading.appendTo($stageWrap).slideDown();
+		} else if (type == "close") {
+			$stageWrap.find("div.update-loading").slideUp(function(){
+				$(this).remove();
+			});
+		}
+	};
+
+	$.fn.brainMap.update = function(json){
+		var recursiveNewJSON = function(arrJSON){
+			var nodeJSON, data, nodeDOM, nodeName;
+
+			for (var i = 0, len1 = arrJSON.length; i < len1; i++) {
+				nodeJSON = arrJSON[i];
+				data = nodeJSON.data;
+				nodeDOM = $("#node-" + nodeJSON.data.id);
+				
+				if (nodeJSON.children.length > 0) {
+					recursiveNewJSON( nodeJSON.children );
+				}
+
+				nodeDOM.data("data", data);
+				nodeName = nodeDOM.find("div.bm-node-name");
+
+				nodeName.attr("class", "bm-node-name");
+
+				if (nodeJSON.delta == 1) {
+					nodeName.addClass("bm-node-up");
+				} else if (nodeJSON.delta == -1) {
+					nodeName.addClass("bm-node-down");
+				} else if (nodeJSON.delta == 0) {
+					nodeName.addClass("bm-node-keep");
+				}
+			}
+		};
+
+		recursiveNewJSON(json);
+
+		config.onUpdate();
+
+		//隐藏"正在加载提示"
+		$.fn.brainMap.updateIndicate("close");
+	};
+
 	return this.each(function(){
 		var $this = $(this);
 
+		config.stage = $this;
+
 		init($this, config.json);
 	});
+
+
 };
 
 $.fn.brainMap.settings = {
 	onSelect: function(){},
 	collapse: true,
-	loadingText: "正在加载..."
+	loadingText: "正在加载...",
+	onUpdate: function(){}
 };
 
 })( jQuery );

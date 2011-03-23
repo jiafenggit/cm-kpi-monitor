@@ -87,7 +87,7 @@ a.disabled:hover { text-decoration: none; }
 /* button */
 .btn{float:right; height:32px; line-height:32px; margin-left:10px; cursor:pointer;}
 	.btn .btn-corner{background:url(../img/nav_btn_s.png) right 0 no-repeat; float:right; width:10px; height:100%; }
-	.btn span{color:#323232; font-size:1.3em; text-align:center; margin-right:10px; padding:0 5px 0 15px; display:block; background:url(../img/nav_btn_s.png) 0 0 no-repeat; font-weight:bold;}
+	.btn span{color:#323232; font-size:1.2em; text-align:center; margin-right:10px; padding:0 5px 0 15px; display:block; background:url(../img/nav_btn_s.png) 0 0 no-repeat; font-weight:bold;}
 
 .btn:hover .btn-corner{background-position:right -32px;}
 .btn:hover span{background-position:0 -32px;}
@@ -376,8 +376,6 @@ div.category-chart{float:right; margin-top:10px; z-index:100000000; position:abs
 				div.category-chart a.selected.category-chart-r{background-position:right -70px;}
 
 .chart{
-	height:350px; 
-	background:#eee; 
 	margin:20px 0; 
 	padding-left:1px;
 }
@@ -434,21 +432,20 @@ ul.related-indicator-list{margin:0 20px 10px 0; float:left; }
 
 /* indicator_brainMap */
 #brainMap{position:relative; }
-#indicator-current,#indicator-selected{
-	position:fixed;
-	margin:10px;
-	width:220px; 
-	height:130px; 
-	z-index:100000;
-}
-#indicator-selected{margin-top: 170px; }
-#indicator-current h5,
+	#indicator-info-wrap{
+		position:fixed;
+		margin:10px;
+		width:220px; 
+		z-index:100000;
+	}
+#indicator-current div.indicator-current-title h5{font-size:1em; color:#808080;margin-bottom: 10px;}
+#indicator-current div.indicator-current-title h5 span{font-size:1.2em;color:#3A3A3A;}
+
 #indicator-selected h5{
-	font-size:1.4em;
+	font-size:1.2em;
 	color:#3A3A3A;
 	margin-bottom: 10px; 
 }
-#indicator-selected .btn{float:left; margin-top: 10px; margin-left: 0; }
 #brainMap #areaSelector, #brainMap #dateSelector{
 	margin-top: 10px;  
 }

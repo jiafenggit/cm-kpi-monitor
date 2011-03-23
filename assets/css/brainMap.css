@@ -40,15 +40,15 @@
 	.bm-node.root .bm-node-btn-wrap{height:50px; background:url(../img/brain_map_node_root.png) left bottom no-repeat; }
 	.bm-node.current .bm-node-btn-wrap{background:url(../img/brain_map_node_current.png) left bottom no-repeat; }
 	.bm-node.selected .bm-node-btn-wrap{background:url(../img/brain_map_node_selected.png) left bottom no-repeat; }
-			.bm-node-btn{ height:33px; padding:2px 5px 0 0; }
+			.bm-node-btn{ height:33px; padding:2px 5px 0 0; cursor:pointer;}
 			.bm-node.root .bm-node-btn{height:50px; padding:0 15px 0 10px; background:url(../img/brain_map_node_root.png) right top no-repeat;}
 			.bm-node.current .bm-node-btn{background:url(../img/brain_map_node_current.png) right top no-repeat;}
 			.bm-node.selected .bm-node-btn{ background:url(../img/brain_map_node_selected.png) right top no-repeat;}
 				.bm-node-name{}
-				.bm-node-keep{}
+				.bm-node-keep{padding:0 10px;}
 				.bm-node-up{padding-right:20px; background:url(../img/arrow_up.png) right center no-repeat;}
 				.bm-node-down{padding-right:20px; background:url(../img/arrow_down.png) right center no-repeat;}
-					.bm-node-name-txt{cursor:pointer; z-index:100;}
+					.bm-node-name-txt{z-index:100;}
 					.bm-node.root .bm-node-name-txt{line-height:46px; }
 
 .bm-node-level-1 .bm-point-branch{background:url(../img/brain_map_node_bar_2.png) right center no-repeat; }

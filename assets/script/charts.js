@@ -564,6 +564,99 @@ $(function(){
 
 				break; 
 			}
+
+			case 7: {
+				chart = new Highcharts.Chart({
+					chart: {
+						renderTo: 'chart',
+						defaultSeriesType: 'column',
+						height: 600
+					}, 
+					title: {
+						text: 'G3客户净增',
+						style:{
+							font:'微软雅黑',
+							fontSize: '16px',
+							fontWeight: 'bold',
+							color:"#333"
+						}
+					}, 
+					subtitle: {
+						text: ' ' 
+					},
+					xAxis: {
+						title: {
+							align: "high",
+							text: ''
+						},
+						categories: ["中心分公司甜度发的发的发的饭的发达发的发发放的算法大额饿啊","西区分公司的发达饭的发达","南区分公司的发达饭的发达","朝阳分公司的发达饭万恶放大萨芬大放送的发达饭地方","昌平分公司的肤色算法瓦房额的算法的饭","顺义分公司大放送费的发送份额色放阿飞斯蒂芬","通州分公司发送到份额色放的份额的份额","房山分公司","大兴分公司","平谷分公司","延庆分公司","密云分公司","怀柔分公司","海淀分公司"],
+						labels: {
+							align:'left',
+							rotation:45,
+							y:10,
+							x:-5,
+							style: {
+								color: '#333',
+								font: '11px 微软雅黑'
+							}
+						}, 
+					},
+					yAxis: {
+						labels: {
+							style: {
+								color: '#333',
+								font: '11px 微软雅黑'
+							}
+						},
+						title: {
+							formatter: function() {
+								return this.value/1+'户';
+							},
+							style: {
+								color: '#333',
+								fontWeight: 'bold',
+								fontSize: '12px',
+								fontFamily: '微软雅黑'
+							},
+							text: 'G3客户净增（单位：户）'
+						}
+					},
+					legend: {
+						layout: 'vertical',
+						backgroundColor: '#FFF',
+						align: 'left',
+						verticalAlign: 'top',
+						x: 100,
+						y: 70,
+						floating: true,
+						shadow: true
+					},
+					tooltip: {
+						formatter: function() {
+							return this.series.name + this.x + ' : ' + this.y+' 户';
+						}
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					labels: {
+						style: {
+							color: '#99b'
+						}
+					}, 
+					series: [{
+							name: '本月',
+							data:[10,null,null,null,5,6,7,18,9,10,11,12,14,14]
+						}, {
+							name: '上月',
+							data: [5,null,null,null,2,2,4,5,7,8,9,4,12,13]
+						}
+					]
+				});
+			}
 		}
 	}
 	
