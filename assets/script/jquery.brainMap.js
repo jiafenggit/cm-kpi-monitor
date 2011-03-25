@@ -198,7 +198,7 @@ $.fn.brainMap = function(setting){
 		$dom = $("<div class='bm-node-wrap" + " bm-node-level-" + opt.level + branchColor + 
 					"'></div>");
 
-		$("<div id='node-" + nodeJSON.data.id + "' class='bm-node " + opt.branchLocation + " " + nodeJSON.state + "'>" + 
+		$("<div id='node-" + nodeJSON.data.id + "-" + nodeJSON.data.type + "' class='bm-node " + opt.branchLocation + " " + nodeJSON.state + "'>" + 
 			"<div class=bm-node-btn-wrap>" +
 				"<div class=bm-node-btn>" +
 					"<div class='bm-node-name " + delta + "'>" + 
@@ -439,17 +439,16 @@ $.fn.brainMap = function(setting){
 		var loading = $("<div></div>", {
 				"class": "stage-loading",
 				html: $("<div />", {
-					text: config.loadingText,
 					css: {
-						"fontSize": "20px",
-						"color": "#fff",
-						"marginTop": $stageWrap.height() / 2 - 10
+						"height": "100%",
+						"width": "100%",
+						"background": "url(assets/img/brain_map_loading.png) center 40% no-repeat"
 					}
 				}),
 				css: {
 					position: "fixed",
-					background: "#666",
-					opacity: "0.3",
+					background: "#bbb",
+					opacity: "0.8",
 					height: $stageWrap.height(),
 					width : $stageWrap.width(),
 					"textAlign": "center",
@@ -505,32 +504,29 @@ $.fn.brainMap = function(setting){
 			$stageWrap = $stage.parent().parent();
 
 		if (type == "open") {
-			var loading = $("<div />", {
-					"class": "update-loading",
-					html: $("<span />", {
-						text: "正在加载...",
-						css: {
-							background:"#ffff99",
-							padding: "0 10px",
-							margin: "0 auto",
-							fontSize: "1.2em"
-						}
-					}),
+			var loading = $("<div></div>", {
+				"class": "update-loading",
+				html: $("<div />", {
 					css: {
-						position: "fixed",
-						height: $stageWrap.height(),
-						width : $stageWrap.width(),
-						textAlign:"center",
-						"zIndex": 100001,
-						display: "none"
+						"height": "100%",
+						"width": "100%",
+						"background": "url(assets/img/brain_map_loading.png) center 40% no-repeat"
 					}
-				});
-				
-			loading.appendTo($stageWrap).slideDown();
-		} else if (type == "close") {
-			$stageWrap.find("div.update-loading").slideUp(function(){
-				$(this).remove();
+				}),
+				css: {
+					position: "fixed",
+					background: "#bbb",
+					opacity: "0.8",
+					height: $stageWrap.height(),
+					width : $stageWrap.width(),
+					"textAlign": "center",
+					"zIndex": 100001
+				}
 			});
+				
+			loading.appendTo($stageWrap);
+		} else if (type == "close") {
+			$stageWrap.find("div.update-loading").hide().remove();
 		}
 	};
 
@@ -541,7 +537,7 @@ $.fn.brainMap = function(setting){
 			for (var i = 0, len1 = arrJSON.length; i < len1; i++) {
 				nodeJSON = arrJSON[i];
 				data = nodeJSON.data;
-				nodeDOM = $("#node-" + nodeJSON.data.id);
+				nodeDOM = $("#node-" + nodeJSON.data.id + "-" + nodeJSON.data.type);
 				
 				if (nodeJSON.children.length > 0) {
 					recursiveNewJSON( nodeJSON.children );

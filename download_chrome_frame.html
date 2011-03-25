@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1" />
 		<meta charset="utf-8" />
 		<title></title>
 		<link rel="stylesheet" href="assets/css/default.css" />
 		<script src="assets/script/jquery-1.5.min.js"></script>
+		<script src="assets/script/CFInstall.min.js"></script>
+		<style>
+			.chromeFrameInstallDefaultStyle{display:none; }
+		</style>
 		<script>
 			$(function(){
-				var timer = setInterval(function(){
-					var ua = navigator.userAgent;
-					if (ua.indexOf("chromeframe")) {
-						clearInterval(timer);
-						location.href = location.href;
-					}
-				}, 2000);
+				CFInstall.check({
+					mode: "inline",
+					node: "prompt",
+					destination: "map_master.html"
+				});
 			});
 		</script>
 	</head>
-	<body id="body-map">
+	<body id="body-CF">
 		<div class="container">
 			<div id="header">
 				<h1 class="system-name">中国移动通信-北京移动分公司KPI监控</h1>
@@ -43,9 +46,10 @@
 					</div>
 				</div>
 				<div class="ie">
-					<img src="assets/img/ie_box.png" border="0" alt="您正在使用IE6浏览器" title="您正在使用IE6浏览器" />
+					<img src="assets/img/ie_box.png" border="0" />
 				</div>
 			</div>
 		</div>
+		<div id="prompt"></div>
 	</body>
 </html>

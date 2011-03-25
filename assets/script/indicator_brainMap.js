@@ -4,46 +4,46 @@ tttt = [{"children":[{"children":[{"children":[{"children":[{"children":[],"data
 brainMapJSON = [{
 	text: "G3客户净增",
 		delta: 0,
-		data: {id:1, value:9},
+		data: {id:1, value:9, type:"kpi"},
 		state: "root",
 		children: [{
 			text: "净增客户数",
 			delta: 0,
-			data: {id:2, value:9},
+			data: {id:2, value:9, type:"kpi"},
 			state: "",
 			children: [{
 				text: "客户发展增幅2",
 				delta: -1,
-				data: {id:3, value:9},
+				data: {id:3, value:9, type:"kpi"},
 				state: "",
 				children: [{
 					text: "客户发展增幅2",
 					delta: 0,
-					data: {id:4, value:9},
+					data: {id:4, value:9, type:"kpi"},
 					state: "",
 					children: []
 				}, {
 					text: "测试一下3",
 					delta: 0,
-					data: {id:5, value:9},
+					data: {id:5, value:9, type:"kpi"},
 					state: "",
 					children: []
 				}]
 			},{
 				text: "客户发展增幅current",
 				delta: 0,
-				data: {id:6, value:9},
+				data: {id:6, value:9, type:"kpi"},
 				state: "",
 				children: [{
 					text: "客户发展增幅2",
 					delta: -1,
-					data: {id:7, value:9},
+					data: {id:7, value:9, type:"kpi"},
 					state: "",
 					children: []
 				}, {
 					text: "测试一下3",
 					delta: 0,
-					data: {id:8, value:9},
+					data: {id:8, value:9, type:"kpi"},
 					state: "",
 					children: []
 				}]
@@ -51,119 +51,119 @@ brainMapJSON = [{
 		}, {
 			text: "客户发展增幅1",
 			delta: 0,
-			data: {id:9, value:9},
+			data: {id:9, value:9, type:"kpi"},
 			state: "",
 			children: [{
 				text: "客户发展增幅2",
 				delta: 0,
-				data: {id:10, value:9},
+				data: {id:10, value:9, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:11, value:9},
+				data: {id:11, value:9, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:12, value:9},
+				data: {id:12, value:9, type:"kpi"},
 				state: "",
 				children: [{
 					text: "测试一下5",
 					delta: 0,
-					data: {id:13, value:9},
+					data: {id:13, value:9, type:"kpi"},
 					state: "",
 					children: []
 				}, {
 					text: "测试一下5",
 					delta: 0,
-					data: {id:14, value:9},
+					data: {id:14, value:9, type:"kpi"},
 					state: "",
 					children: [{
 						text: "测试一下5",
 						delta: 0,
-						data: {id:15, value:9},
+						data: {id:15, value:9, type:"kpi"},
 						state: "",
 						children: [{
 							text: "测试一下5",
 							delta: 0,
-							data: {id:16, value:9},
+							data: {id:16, value:9, type:"kpi"},
 							state: "",
 							children: []
 						}, {
 							text: "测试一下5",
 							delta: 0,
-							data: {id:17, value:9},
+							data: {id:17, value:9, type:"kpi"},
 							state: "",
 							children: []
 						}]
 					}, {
 						text: "测试一下5",
 						delta: 0,
-						data: {id:18, value:9},
+						data: {id:18, value:9, type:"kpi"},
 						state: "",
 						children: []
 					}]
 				}, {
 					text: "测试一下5",
 					delta: 0,
-					data: {id:19, value:9},
+					data: {id:19, value:9, type:"kpi"},
 					state: "",
 					children: []
 				}]
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:20, value:9},
+				data: {id:20, value:9, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:21, value:9},
+				data: {id:21, value:9, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:22, value:9},
+				data: {id:22, value:9, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:23, value:9},
+				data: {id:23, value:9, type:"kpi"},
 				state: "",
 				children: []
 			}]
 		}, {
 			text: "测试一下2",
 			delta: 1,
-			data: {id:24, value:9},
+			data: {id:24, value:9, type:"kpi"},
 			state: "",
 			children: [{
 				text: "测试一下5",
 				delta: 0,
-				data: {id:25, value:9},
+				data: {id:25, value:9, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:26, value:9},
+				data: {id:26, value:9, type:"kpi"},
 				state: "current",
 				children: [{
 					text: "测试一下5",
 					delta: 0,
-					data: {id:27, value:9},
+					data: {id:27, value:9, type:"kpi"},
 					state: "",
 					children: []
 				}, {
 					text: "测试一下5",
 					delta: 0,
-					data: {id:28, value:9},
+					data: {id:28, value:9, type:"kpi"},
 					state: "",
 					children: []
 				}]
@@ -174,46 +174,46 @@ brainMapJSON = [{
 brainMap = [{
 		text: "G3客户净增",
 		delta: 0,
-		data: {id:1, value:0},
+		data: {id:1, value:0, type:"kpi"},
 		state: "root",
 		children: [{
 			text: "净增客户数",
 			delta: 0,
-			data: {id:2, value:0},
+			data: {id:2, value:0, type:"kpi"},
 			state: "",
 			children: [{
 				text: "客户发展增幅2",
 				delta: 1,
-				data: {id:3, value:0},
+				data: {id:3, value:0, type:"kpi"},
 				state: "",
 				children: [{
 					text: "客户发展增幅2",
 					delta: 1,
-					data: {id:4, value:0},
+					data: {id:4, value:0, type:"kpi"},
 					state: "",
 					children: []
 				}, {
 					text: "测试一下3",
 					delta: 0,
-					data: {id:5, value:0},
+					data: {id:5, value:0, type:"kpi"},
 					state: "",
 					children: []
 				}]
 			},{
 				text: "客户发展增幅current",
 				delta: 0,
-				data: {id:6, value:0},
+				data: {id:6, value:0, type:"kpi"},
 				state: "",
 				children: [{
 					text: "客户发展增幅2",
 					delta: 1,
-					data: {id:7, value:0},
+					data: {id:7, value:0, type:"kpi"},
 					state: "",
 					children: []
 				}, {
 					text: "测试一下3",
 					delta: 0,
-					data: {id:8, value:0},
+					data: {id:8, value:0, type:"kpi"},
 					state: "",
 					children: []
 				}]
@@ -221,119 +221,119 @@ brainMap = [{
 		}, {
 			text: "客户发展增幅1",
 			delta: -1,
-			data: {id:9, value:0},
+			data: {id:9, value:0, type:"kpi"},
 			state: "",
 			children: [{
 				text: "客户发展增幅2",
 				delta: 0,
-				data: {id:10, value:0},
+				data: {id:10, value:0, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:11, value:0},
+				data: {id:11, value:0, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:12, value:0},
+				data: {id:12, value:0, type:"kpi"},
 				state: "",
 				children: [{
 					text: "测试一下5",
 					delta: 0,
-					data: {id:13, value:0},
+					data: {id:13, value:0, type:"kpi"},
 					state: "",
 					children: []
 				}, {
 					text: "测试一下5",
 					delta: 0,
-					data: {id:14, value:0},
+					data: {id:14, value:0, type:"kpi"},
 					state: "",
 					children: [{
 						text: "测试一下5",
 						delta: 0,
-						data: {id:15, value:0},
+						data: {id:15, value:0, type:"kpi"},
 						state: "",
 						children: [{
 							text: "测试一下5",
 							delta: 0,
-							data: {id:16, value:0},
+							data: {id:16, value:0, type:"kpi"},
 							state: "",
 							children: []
 						}, {
 							text: "测试一下5",
 							delta: 0,
-							data: {id:17, value:0},
+							data: {id:17, value:0, type:"kpi"},
 							state: "",
 							children: []
 						}]
 					}, {
 						text: "测试一下5",
 						delta: 0,
-						data: {id:18, value:0},
+						data: {id:18, value:0, type:"kpi"},
 						state: "",
 						children: []
 					}]
 				}, {
 					text: "测试一下5",
 					delta: 0,
-					data: {id:19, value:0},
+					data: {id:19, value:0, type:"kpi"},
 					state: "",
 					children: []
 				}]
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:20, value:0},
+				data: {id:20, value:0, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:21, value:0},
+				data: {id:21, value:0, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:22, value:0},
+				data: {id:22, value:0, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:23, value:0},
+				data: {id:23, value:0, type:"kpi"},
 				state: "",
 				children: []
 			}]
 		}, {
 			text: "测试一下2",
 			delta: 0,
-			data: {id:24, value:0},
+			data: {id:24, value:0, type:"kpi"},
 			state: "",
 			children: [{
 				text: "测试一下5",
 				delta: 0,
-				data: {id:25, value:0},
+				data: {id:25, value:0, type:"kpi"},
 				state: "",
 				children: []
 			}, {
 				text: "测试一下5",
 				delta: 0,
-				data: {id:26, value:0},
+				data: {id:26, value:0, type:"kpi"},
 				state: "current",
 				children: [{
 					text: "测试一下5",
 					delta: 0,
-					data: {id:27, value:0},
+					data: {id:27, value:0, type:"kpi"},
 					state: "",
 					children: []
 				}, {
 					text: "测试一下5",
 					delta: 0,
-					data: {id:28, value:0},
+					data: {id:28, value:0, type:"kpi"},
 					state: "",
 					children: []
 				}]
