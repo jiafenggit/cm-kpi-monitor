@@ -71,28 +71,19 @@ objMapDict = (function(){
 
 //系统导航
 $(function(){
+    //modified by farthinker
 	$("#nav-map, #nav-indicator").bind("click", function(e){
 		e.preventDefault();
+		var target = $(e.target),
+		    li = target.parent( "li" );
 
-		var target = $(e.target);
-
-		if( target.hasClass("selected") ||
-			target.hasClass("nav-l-selected") ||
-			target.hasClass("nav-r-selected") ){
+		if( li.hasClass("selected")){
 			return
 		} else {
 			//切换选中的样式
-			$("#header div.nav a.selected").removeClass("selected");
-			$("#header div.nav a.nav-l-selected").removeClass("nav-l-selected");
-			$("#header div.nav a.nav-r-selected").removeClass("nav-r-selected");
-
-			if ( target.hasClass("nav-l") ) {
-				target.addClass("nav-l-selected");
-			} else if ( target.hasClass("nav-r") ) {
-				target.addClass("nav-r-selected");
-			} else {
-				target.addClass("selected");
-			}
+            li.addClass( "selected" )
+                .siblings( "li" )
+                .removeClass("selected");
 			
 			
 			var href = target.attr("href");

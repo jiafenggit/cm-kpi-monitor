@@ -21,7 +21,7 @@
 				<h1 class="system-name">中国移动通信-北京移动分公司KPI监控</h1>
 				<div class="nav">
 					<ul>
-						<li><a class="nav-l selected" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
+						<li class="selected"><a class="nav-l" id="nav-map" href="map_master.html" title="通过地图查看各地市指标">地市总览</a></li>
 						<li><a class="nav-r" id="nav-indicator" href="indicator_detail.html" title="查看各指标数据">关键指标</a></li>
 					</ul>
 				</div>
@@ -36,7 +36,8 @@
 				<div class="panel-hd"></div>
 				<div class="panel-bd">
 					<div class="indicator-choose clearfix">
-						<h3 id="indicator-name" class="indicator-name">在网且ARPU达标客户保有率<span class="indicator-name-help">help</span></h3>
+					    <!-- modified by farthinker -->
+						<h3 id="indicator-name" class="indicator-name"><span class="title">在网且ARPU达标客户保有率</span><span class="indicator-name-help">help</span></h3>
 						<div id="chooseCondition" class="chooseCondition">
 							<div id="areaSelector" class="area-selector">
 								<div class="area-selector-trigger"></div>
@@ -50,7 +51,7 @@
 						</div>
 						<div id="category-min" class="category-min">
 							<ul>
-								<li><a class="category-min-l selected" href="#">日指标</a></li>
+								<li class="selected"><a class="category-min-l" href="#">日指标</a></li>
 								<li><a class="category-min-r" href="#">月指标</a></li>
 							</ul>
 						</div>
@@ -84,7 +85,7 @@
 					<div id="chartWrap">
 						<div id="category-chart" class="category-chart">
 							<ul>
-								<li><a class="category-chart-l selected" href="#">地图</a></li>
+								<li class="selected"><a class="category-chart-l" href="#">地图</a></li>
 								<li><a href="#">趋势</a></li>
 								<li><a class="category-chart-r" href="#">渠道</a></li>
 							</ul>
@@ -112,16 +113,13 @@
 					<!-- 如果关联指标存在：开始 -->
 					<div class="related-indicator clearfix">
 						<h3>关联指标</h3>
-						<div class="btn">
-							<div class="btn-corner"></div>
+						<div class="btn"><!-- modified by farthinker -->
 							<span>分析</span>
 						</div>
-						<div class="btn">
-							<div class="btn-corner"></div>
+						<div class="btn"><!-- modified by farthinker -->
 							<span>通用查询</span>
 						</div>
-						<div id="downloadBtn" class="btn">
-							<div class="btn-corner"></div>
+						<div id="downloadBtn" class="btn"><!-- modified by farthinker -->
 							<span>异常明细下载</span>
 						</div>
 					</div>
@@ -161,15 +159,12 @@
 
 					<div class="related-indicator clearfix">
 						<div class="btn related-analysis">
-							<div class="btn-corner"></div>
 							<span>关联分析</span>
 						</div>
 						<div class="btn">
-							<div class="btn-corner"></div>
 							<span>通用查询</span>
 						</div>
-						<div class="downloadd-btn">
-							<div class="downloadd-btn-corner"></div>
+						<div class="btn downloadd-btn">
 							<span>异常明细下载</span>
 						</div>
 					</div>
@@ -181,22 +176,10 @@
 		</div>
 		<!-- 对指标的描述提示 -->
 		<div class="tool-tips" style="display:none;">
-			<div class="adapt-panel">
-				<div class="adapt-panel-hd">
-					<div class="adapt-panel-hd-l"></div>
-					<div class="adapt-panel-hd-r"></div>
-				</div>
-				<div class="adapt-panel-bd">
-					<div class="adapt-panel-bd-l"></div>
-					<div class="adapt-panel-bd-r">
-						<h5 class="tool-tips-title">净增客户数</h5>
-						<p class="tool-tips-content">这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，</p>
-					</div>
-				</div>
-				<div class="adapt-panel-ft">
-					<div class="adapt-panel-ft-l"></div>
-					<div class="adapt-panel-ft-r"></div>
-				</div>
+		    <!-- modified by farthinker -->
+			<div class="tool-tips-panel">
+				<h5 class="tool-tips-title">净增客户数</h5>
+				<p class="tool-tips-content">这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，</p>
 			</div>
 			<div class="tool-tips-arrow">
 			</div>

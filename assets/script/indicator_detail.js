@@ -5,14 +5,15 @@ $(function(){
 	function eventCategoryClick(e){
 		e.preventDefault();
 
-		var target = $(e.target);
+		var li = $(e.target).parent( "li" ); //modified by farthinker
 
-		if( target.hasClass("selected") ){
+		if( li.hasClass("selected") ){
 			return
 		} else {
 			//切换选中的样式
-			$("#category a.selected").removeClass("selected");
-			target.addClass("selected");
+			li.addClass("selected") //modified by farthinker
+			    .siblings( "li" )
+			    .removeClass("selected");
 			
 			//刷新数据
 			////
