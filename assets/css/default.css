@@ -423,7 +423,7 @@ div.category-chart{float:right; margin-top:10px; z-index:100000000; position:abs
 	.related-indicator .btn{float:left; }
 	.related-indicator .related-analysis{margin-left:0;}
 
-ul.related-indicator-list{margin:0 20px 10px 0; float:left; }
+ul.related-indicator-list{padding:0 20px 10px 0; float:left; }
 	ul.related-indicator-list li{float:left; margin-left:20px; width:450px; background:url(../img/related_indicator_bg.png) 0 0 no-repeat; _display: inline; }
 		ul.related-indicator-list li:hover{background-position:0 -45px; }
 		ul.related-indicator-list li table{width:100%; }
