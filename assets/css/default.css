@@ -41,8 +41,8 @@ a.disabled:hover { text-decoration: none; }
 	border-bottom:1px solid #D4D4D4;
 	margin-bottom:3px;
 }
-.area-selector-ul li.current{color:#212121;}
-.area-selector-ul li:hover{
+.area-selector-ul li.current a{color:#212121;}
+.area-selector-ul a:hover{
 	color:#212121;
 }
 
@@ -212,7 +212,8 @@ a.disabled:hover { text-decoration: none; }
 				left:0;
 				background:url(../img/map/edge.png) 0 0 no-repeat; 
 			}
-			div.area-0{background-image:url(../img/map/edge.png);}
+
+			div.area-0{background:url(../img/map/edge.png) 0 0 no-repeat;}
 
 			div.area-1-db{background-image:url(../img/map/1_db.png);}
 			div.area-1-lb{background-image:url(../img/map/1_lb.png);}
