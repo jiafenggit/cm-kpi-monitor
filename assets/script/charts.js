@@ -599,7 +599,7 @@ $(function(){
 								color: '#333',
 								font: '11px 微软雅黑'
 							}
-						}, 
+						}
 					},
 					yAxis: {
 						labels: {

@@ -129,28 +129,20 @@ $(function(){
 		$("#pop-areaData").hide();
 	}
 
+    // modified by farthinker
 	function eventCategoryClick(e){
 		e.preventDefault();
 
-		var target = $(e.target);
+		var target = $(e.target),
+		    li = target.parent( "li" );
 
-		if( target.hasClass("selected") ||
-			target.hasClass("nav-l-selected") ||
-			target.hasClass("nav-r-selected") ){
-			return
+		if( li.hasClass("selected")){
+			return;
 		} else {
 			//切换选中的样式
-			$("#category a.selected").removeClass("selected");
-			$("#category a.nav-l-selected").removeClass("nav-l-selected");
-			$("#category a.nav-r-selected").removeClass("nav-r-selected");
-
-			if ( target.hasClass("nav-l") ) {
-				target.addClass("nav-l-selected");
-			} else if ( target.hasClass("nav-r") ) {
-				target.addClass("nav-r-selected");
-			} else {
-				target.addClass("selected");
-			}
+			li.addClass( "selected" )
+			    .siblings( "li" )
+			    .removeClass( "selected" );
 			
 			//刷新数据
 			////

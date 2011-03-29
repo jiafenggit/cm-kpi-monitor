@@ -5,14 +5,15 @@ $(function(){
 	function eventChangeDayOrMonth(e){
 		e.preventDefault();
 
-		var target = $(e.target);
+		var li = $(e.target).parent( "li" ); //modified by farthinker
 
-		if( target.hasClass("selected") ){
+		if( li.hasClass("selected") ){
 			return
 		} else {
 			//切换选中的样式
-			$("#category-min a.selected").removeClass("selected");
-			target.addClass("selected");
+			li.addClass("selected") //modified by farthinker
+			    .siblings( "li" )
+			    .removeClass( "selected" );
 			
 			//刷新数据
 			////
@@ -22,14 +23,15 @@ $(function(){
 	function eventChangeChartAug(e){
 		e.preventDefault();
 
-		var target = $(e.target);
+		var li = $(e.target).parent( "li" ); //modified by farthinker
 
-		if( target.hasClass("selected") ){
+		if( li.hasClass("selected") ){
 			return
 		} else {
 			//切换选中的样式
-			$("#category-chart a.selected").removeClass("selected");
-			target.addClass("selected");
+			li.addClass("selected")
+			    .siblings( "li" )
+			    .removeClass("selected"); //modified by farthinker
 			
 			alert("想更新图表？我在'assets/script/indicator_analysis.js [function]-eventChangeChartAug中'");
 			//切换图标数据
@@ -40,10 +42,12 @@ $(function(){
 	$("#category-min a").bind("click", eventChangeDayOrMonth);
 	$("#category-chart a").bind("click", eventChangeChartAug);
 
+    // modified by farthinker
 	$(".indicator-name-help").hover(function(e){
+	    var offset = $( this ).offset();
 		$(".tool-tips").css({
-			left: e.pageX + "px",
-			top: e.pageY - 22 + "px"
+			left: offset.left + 45 + "px",
+			top: offset.top - 8  + "px"
 		}).show();
 	}, function(){
 		$(".tool-tips").hide();
