@@ -569,13 +569,12 @@ $(function(){
 				chart = new Highcharts.Chart({
 					chart: {
 						renderTo: 'chart',
-						defaultSeriesType: 'column',
-						height: 600
+						defaultSeriesType: 'column'
 					}, 
 					title: {
 						text: 'G3客户净增',
 						style:{
-							font:'微软雅黑',
+							fontFamily: '微软雅黑',
 							fontSize: '16px',
 							fontWeight: 'bold',
 							color:"#333"
@@ -586,10 +585,10 @@ $(function(){
 					},
 					xAxis: {
 						title: {
-							align: "high",
+							align: 'high',
 							text: ''
 						},
-						categories: ["中心分公司甜度发的发的发的饭的发达发的发发放的算法大额饿啊","西区分公司的发达饭的发达","南区分公司的发达饭的发达","朝阳分公司的发达饭万恶放大萨芬大放送的发达饭地方","昌平分公司的肤色算法瓦房额的算法的饭","顺义分公司大放送费的发送份额色放阿飞斯蒂芬","通州分公司发送到份额色放的份额的份额","房山分公司","大兴分公司","平谷分公司","延庆分公司","密云分公司","怀柔分公司","海淀分公司"],
+						categories: ["中心分公司","西区分公司的发达饭的发达","南区分公司的发达饭的发达","朝阳分公司","昌平分公司","顺义分公司","通州分公司","房山分公司","大兴分公司","平谷分公司","延庆分公司","密云分公司","怀柔分公司","海淀分公司"],
 						labels: {
 							align:'left',
 							rotation:45,

@@ -24,6 +24,9 @@ a.disabled:hover { text-decoration: none; }
 
 .red{color:#CB220F;}
 
+/* for jquery datapicker */
+.ui-datepicker-trigger{width:100%;}
+
 /* area selector + date-selector */
 .area-selector, .date-selector{float:left; width:180px;  height:32px; margin-right:10px; position:relative; cursor:pointer;}
 	.area-selector-text, .date-selector-text{color:#323232; font-size:1.2em; padding-left:10px; line-height:32px; margin-right:43px; display:block; background:url(../img/select.png) 0 center no-repeat; font-weight:bold;}
@@ -57,25 +60,33 @@ a.disabled:hover { text-decoration: none; }
 		color:#FFF;
 	}
 	.date-selector-ul li{
-		color: #555;
-		font-size: 1.1em;
-		padding: 2px 0;
-		border:1px solid #d3d3d3;
-		background: #ededed;
-		cursor: pointer;
 		float: left;
 		width: 23%; 
-		text-align:right;
-		font-weight: bold;
-		margin:1px;}
-		.date-selector-ul li.current{
-			border:1px solid #82BBF3; 
-			background: #E0F5FD; 
+		margin:1px;
+	}
+		.date-selector-ul a{
+			display:block;
+			font-size: 1.1em;
+			padding: 2px 5px 2px 0;
+			color: #555;
+			border:1px solid #d3d3d3;
+			background: #ededed;
+			cursor: pointer;
+			text-align:right;
+			font-weight: bold;
+			text-decoration:none;
 		}
-		.date-selector-ul li:hover{
+		.date-selector-ul a:link,
+		.date-selector-ul a:visited{color: #555; background: #ededed; border:1px solid #d3d3d3;}
+		.date-selector-ul a:hover{
 			border:1px solid #999; 
 			background: #e4e4e4;
 			color:#212121;
+		}
+		.date-selector-ul li.current a,
+		.date-selector-ul li.current a:visited{
+			border:1px solid #82BBF3; 
+			background: #E0F5FD; 
 		}
 		.date-selector-prev-year,
 		.date-selector-next-year{cursor:pointer; margin:4px 0 0 4px; display:block; float:left; width:26px; height:26px; background:url("../img/date_selector_icon.png") 0 0 no-repeat; }
@@ -152,11 +163,11 @@ a.disabled:hover { text-decoration: none; }
 	    background: #ffffff;
 	}
 	.tool-tips-arrow{ 
-		background:url(../img/tool_tips_arrow.png) 0 0 no-repeat; 
+		background:url(../img/tool_tips_arrow.gif) 0 0 no-repeat; 
 		position:absolute;
 		width:28px;
 		height:24px;
-		left:-23px;
+		left:-27px;
 		top:10px;}
 	.tool-tips-title{
 		font-size:1.2em;
@@ -299,7 +310,11 @@ a.disabled:hover { text-decoration: none; }
 		width:158px; 
 		height:157px; 
 		text-align:left;
-		background:url(../img/pop_areaData_bg.png) 50% 50% no-repeat; }
+		border:1px solid #9B9F9F;
+		border-width:1px 3px 3px 1px;
+		border-color:#ccc #9B9F9F #9B9F9F #ccc;
+		background: #fff; 
+		border-radius:5px;}
 		#areaData{display:none; padding:10px; min-height:100px;}
 			#areaData h5{font-size:14px; font-weight:bold;}
 			#areaData span.areaData-date{font-size:0.9em; color:#666;}
@@ -314,8 +329,8 @@ a.disabled:hover { text-decoration: none; }
 			div.category a.nav-r-selected{background-position:right -168px;}
 		div.areaName{margin:20px 0;}
 			div.areaName h3{font-size:30px; margin-right:20px; float:left;}
-			div.areaName .date-selector,
-			div.areaName .btn{margin-top:8px;}
+			div.areaName .date-selector{margin-top:8px;}
+			div.areaName .btn{margin-top:8px; float:right;}
 
 		div.indicatorData table{width:100%; }
 			div.indicatorData tr{height:40px; }

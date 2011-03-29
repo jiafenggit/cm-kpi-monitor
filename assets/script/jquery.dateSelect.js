@@ -106,7 +106,7 @@ $.fn.dateSelect = function(setting){
 				
 				var cur = (i == date.month) ? "current" : "";
 
-				$("<li value=" + i + " class=" + cur + ">" + i + "月" + "</li>")
+				$("<li value=" + i + " class=" + cur + "><a href=#>" + i + "月" + "</a></li>")
 					.bind("click", {"id": id}, eventChangeOption)
 					.appendTo(UL);
 				
