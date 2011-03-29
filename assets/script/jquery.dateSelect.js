@@ -65,6 +65,7 @@ $.fn.dateSelect = function(setting){
 		var optionsWrap = $("#" + id + "-panel");
 
 		if(optionsWrap.size() == 0){
+			
 			//cal the pop's location
 			var offset = select.offset();
 			var	top = offset.top + select.height();
@@ -75,25 +76,18 @@ $.fn.dateSelect = function(setting){
 				"id": id + "-panel",
 				css: {
 					position: "absolute",
-					top: top,
-					left: left - 4,
+					top: top + 2 + "px",
+					left: left,
 					width: config.width || select.width(),
 					textAlign: "left",
-					zIndex:100001
+					zIndex:100001,
+					background:"#fff",
+					padding:"2px",
+					border:"1px solid #9B9F9F",
+					"border-radius": "5px",
+					"box-shadow": "1px 1px 5px #aaa"
 				}
 			});
-
-			HTML.append("<div class=adapt-panel>" +
-				"<div class=adapt-panel-hd>" +
-					"<div class=adapt-panel-hd-l></div><div class=adapt-panel-hd-r></div>" + 
-				"</div>" +
-				"<div class=adapt-panel-bd>" +
-					"<div class=adapt-panel-bd-l></div><div class=adapt-panel-bd-r></div>" +
-				"</div>" +
-				"<div class=adapt-panel-ft>" +
-					"<div class=adapt-panel-ft-l></div><div class=adapt-panel-ft-r></div>" +
-				"</div>" +
-			"</div>");
 
 			var date = getDate();
 			
@@ -101,25 +95,24 @@ $.fn.dateSelect = function(setting){
 				"class": "date-selector-year-bar",
 				html: $("<a class=date-selector-prev-year /><a class=date-selector-next-year /><div class=date-selector-year>" + date.year + "年" + "</div>")
 			});
-
+			
 			yearBar.find("a.date-selector-prev-year, a.date-selector-next-year").bind("click", {"id": id + "-panel"}, eventChangeYear);
-
-			yearBar.appendTo(HTML.find(".adapt-panel-bd-r"));
+			
+			yearBar.appendTo(HTML);
 
 			var UL = $("<ul class=date-selector-ul />");
-
+			
 			for(var i = 1; i <= 12; i++){
+				
 				var cur = (i == date.month) ? "current" : "";
-				var LI = $("<li />", {
-					"value": i,
-					text: i+"月",
-					"class": cur
-				}).bind("click", {"id": id}, eventChangeOption);
 
-				LI.appendTo(UL);
+				$("<li value=" + i + " class=" + cur + ">" + i + "月" + "</li>")
+					.bind("click", {"id": id}, eventChangeOption)
+					.appendTo(UL);
+				
 			}
 
-			UL.appendTo(HTML.find(".adapt-panel-bd-r"));
+			UL.appendTo(HTML);
 
 			HTML.appendTo(document.body);
 			$(document).bind("click", {"id": id}, eventHide);
@@ -160,7 +153,7 @@ $.fn.dateSelect = function(setting){
 };
 
 $.fn.dateSelect.settings = {
-	"width": 240
+	"width": 220
 };
 
 })( jQuery );
