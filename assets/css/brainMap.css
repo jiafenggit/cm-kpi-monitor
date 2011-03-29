@@ -1,6 +1,6 @@
 ﻿#content{padding:0 5px;}
 .brain-map{background:#fff; width:960px; overflow:auto; height:200px; position:relative; }
-	.brain-map .stage-inner-wrap{width:10000px; height:10000px; position:absolute; cursor:move;}
+	.brain-map .stage-inner-wrap{width:10000px; height:10000px; position:absolute; }
 
 .bm-node{}
 

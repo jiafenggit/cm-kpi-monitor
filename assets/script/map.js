@@ -7,23 +7,27 @@ $(function(){
 		var areas = $("#map div.area");
 
 		$.each(arrMapDict, function(index, item){
-			var area = areas.eq( parseInt(item.value, 10) );
+			var n = parseInt(item.value, 10);
+			var area = areas.eq( n );
+			var c = "area-" + n;
 
 			switch(item.rank){
 				case "1": {
-					area.addClass("db");
+					c += "-db";
 					break;
 				}
 				case "2": {
-					area.addClass("lb");
+					c += "-lb";
 					break;
 				}
 				case "3": {
-					area.addClass("og");
+					c += "-og";
 					break;
 				}
 				default: break;
 			}
+
+			area.addClass(c);
 		});
 	})();
 
@@ -54,7 +58,7 @@ $(function(){
 		setTimeout(function(){
 			$("#areaData").css({
 				"background": "none"
-			}).children().show();
+			}).children().css("visibility", "visible");
 		}, 1000);
 	}
 
@@ -121,7 +125,7 @@ $(function(){
 		$("#areaData").css({
 			"background": "url(assets/img/loading.gif) 50% 50% no-repeat"
 		}).hide();
-		$("#areaData").children().hide();
+		$("#areaData").children().css("visibility", "hidden");
 		$("#pop-areaData").hide();
 	}
 
@@ -130,12 +134,23 @@ $(function(){
 
 		var target = $(e.target);
 
-		if( target.hasClass("selected") ){
+		if( target.hasClass("selected") ||
+			target.hasClass("nav-l-selected") ||
+			target.hasClass("nav-r-selected") ){
 			return
 		} else {
 			//切换选中的样式
 			$("#category a.selected").removeClass("selected");
-			target.addClass("selected");
+			$("#category a.nav-l-selected").removeClass("nav-l-selected");
+			$("#category a.nav-r-selected").removeClass("nav-r-selected");
+
+			if ( target.hasClass("nav-l") ) {
+				target.addClass("nav-l-selected");
+			} else if ( target.hasClass("nav-r") ) {
+				target.addClass("nav-r-selected");
+			} else {
+				target.addClass("selected");
+			}
 			
 			//刷新数据
 			////

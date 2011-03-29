@@ -76,12 +76,24 @@ $(function(){
 
 		var target = $(e.target);
 
-		if( target.hasClass("selected") ){
+		if( target.hasClass("selected") ||
+			target.hasClass("nav-l-selected") ||
+			target.hasClass("nav-r-selected") ){
 			return
 		} else {
 			//切换选中的样式
 			$("#header div.nav a.selected").removeClass("selected");
-			target.addClass("selected");
+			$("#header div.nav a.nav-l-selected").removeClass("nav-l-selected");
+			$("#header div.nav a.nav-r-selected").removeClass("nav-r-selected");
+
+			if ( target.hasClass("nav-l") ) {
+				target.addClass("nav-l-selected");
+			} else if ( target.hasClass("nav-r") ) {
+				target.addClass("nav-r-selected");
+			} else {
+				target.addClass("selected");
+			}
+			
 			
 			var href = target.attr("href");
 			alert("我在assets/script/base.js中，过来找我吧:)");

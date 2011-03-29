@@ -437,7 +437,9 @@ $(function(){
 	//添加脑图画布的拖动事件
 	$( ".stage" ).mouscroll({
 		handle: ".stage-inner-wrap",
-		cancel: ".bm-node"
+		cancel: ".bm-node",
+		cursor: "url('assets/img/ImageMove.cur'), move",
+		cursorDrag: "url('assets/img/ImageDoMove.cur'), move"
 	}); 
 
 });

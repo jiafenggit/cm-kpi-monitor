@@ -6,6 +6,7 @@ $.widget( "ccw.mouscroll", {
         handle: false,
         cancel: false,
         cursor: "auto",
+		cursorDrag: "auto",
         x: true,
         y: true
     },
@@ -13,7 +14,10 @@ $.widget( "ccw.mouscroll", {
     _init: function() {
         var opts = this.options,
             handle = opts.handle ? this.element.find( opts.handle ) : this.element;
-        
+
+        $( document.body ).css({
+			cursor: opts.cursor
+		});
         
         handle.mousedown( $.proxy( function( e ) {
             if ( opts.cancel && 
@@ -47,9 +51,9 @@ $.widget( "ccw.mouscroll", {
                 axis.x = false;
             }
             
-            if ( opts.cursor ) {
+			if ( opts.cursor ) {
                 $( document.body ).css({
-                    cursor: opts.cursor
+                    cursor: opts.cursorDrag
                 });
             }
             
@@ -77,7 +81,7 @@ $.widget( "ccw.mouscroll", {
                 $( document ).unbind( "mousemove.mouscroll" );
                 if ( opts.cursor ) {
                     $( document.body ).css({
-                        cursor: "auto"
+                        cursor: opts.cursor
                     });
                 }
             }, this ));
