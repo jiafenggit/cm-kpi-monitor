@@ -16,7 +16,8 @@ $(function(){
 			    .removeClass( "selected" );
 			
 			//刷新数据
-			////
+			$("#dateSelector").toggle();
+			$("#dateSelectorMonth").toggle();
 		}
 	}
 
@@ -90,7 +91,10 @@ $(function(){
 		beforeShow: function () {
 			setTimeout(
 				function () {
-					$('#ui-datepicker-div').css("z-index", 1000000001);
+					$('#ui-datepicker-div').css({
+						"z-index": 1000000001,
+						"top": parseInt($('#ui-datepicker-div').css("top"), 10) + 34
+					});
 				}, 100
 			);
 		},
@@ -98,6 +102,13 @@ $(function(){
 			var arrDate = date.split("-")
 			var cnDate = arrDate[0] + "年" + arrDate[1] + "月" + arrDate[2] + "日";
 			$(this).siblings(".date-selector-text").text(cnDate);
+			alert(date);
+		}
+	});
+
+	$("#dateSelectorMonth").dateSelect({
+		onSelect:function(date){
+			//在此实现选择日期后的数据加载
 			alert(date);
 		}
 	});

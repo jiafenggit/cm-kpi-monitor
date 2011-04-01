@@ -8,15 +8,18 @@
 		<link rel="stylesheet" href="assets/css/jquery-ui-custom-theme/jquery-ui-1.8.10.custom.css" />
 		<script src="assets/script/jquery-1.5.min.js"></script>
 		<script src="assets/script/jquery-ui-1.8.10.custom.min.js"></script>
+		
 		<script src="assets/script/jquery.select.js"></script>
 		<script src="assets/script/jquery.dateSelect.js"></script>
 		<script src="assets/script/highcharts.js"></script>
 		<script src="assets/script/base.js"></script>
 		<script src="assets/script/indicator_analysis.js"></script>
+		
 		<script src="assets/script/charts.js"></script>
 		<script src="assets/script/iepngfix_tilebg.js"></script>
 		<style type="text/css">
 			span.indicator-name-help,
+			div.date-selector-year-bar a,
 			img{ behavior: url("assets/script/iepngfix.htc") }
 		</style>
 	</head>
@@ -42,23 +45,34 @@
 				<div class="panel-bd">
 					<div class="indicator-choose clearfix">
 					    <!-- modified by farthinker -->
-						<h3 id="indicator-name" class="indicator-name"><span class="title">在网且ARPU达标客户保有率</span><span class="indicator-name-help">help</span></h3>
-						<div id="chooseCondition" class="chooseCondition">
-							<div id="areaSelector" class="area-selector">
-								<div class="area-selector-trigger"></div>
-								<span class="area-selector-text">北京市</span>
-							</div>
-							<div id="dateSelector" class="date-selector">
-								<div class="date-selector-trigger"></div>
-								<span class="date-selector-text">2011年2月2日</span>
-								<input id="daySelector" type="text" value="" />
-							</div>
+						<div class="btn" id="fanhui" style="float:right;">
+							<span >返回</span>
 						</div>
-						<div id="category-min" class="category-min">
-							<ul>
-								<li class="selected"><a class="category-min-l" href="#">日指标</a></li>
-								<li><a class="category-min-r" href="#">月指标</a></li>
-							</ul>
+						<h3 id="indicator-name" class="indicator-name">
+							<span class="title">在网且ARPU达标客户保有率</span><span class="indicator-name-help">help</span>
+						</h3>
+						<div class="clearfix clear">
+							 <div id="chooseCondition" class="chooseCondition">
+								<div id="areaSelector" class="area-selector">
+									<div class="area-selector-trigger"></div>
+									<span class="area-selector-text">北京市</span>
+								</div>
+								<div id="dateSelectorMonth" class="date-selector">
+									<div class="date-selector-trigger"></div>
+									<span class="date-selector-text">2011年2月</span>
+								</div>
+								<div id="dateSelector" class="date-selector" style="display:none;">
+									<div class="date-selector-trigger"></div>
+									<span class="date-selector-text">2011年2月2日</span>
+									<input id="daySelector" type="text" value="" />
+								</div>
+							</div>
+							<div id="category-min" class="category-min">
+								<ul>
+									<li class="selected"><a class="category-min-l" href="#">日指标</a></li>
+									<li><a class="category-min-r" href="#">月指标</a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div class="indicator-analysis">
@@ -114,7 +128,7 @@
 
 				
 				<div class="panel-hd"></div>
-				<div class="panel-bd">
+				<div class="panel-bd clearfix">
 					<!-- 如果关联指标存在：开始 -->
 					<div class="related-indicator clearfix">
 						<h3>关联指标</h3>
@@ -184,7 +198,7 @@
 		    <!-- modified by farthinker -->
 			<div class="tool-tips-panel">
 				<h5 class="tool-tips-title">净增客户数</h5>
-				<p class="tool-tips-content">这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，</p>
+				<p class="tool-tips-content">这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，这里是相关的描述哈，</p>
 			</div>
 			<div class="tool-tips-arrow">
 			</div>

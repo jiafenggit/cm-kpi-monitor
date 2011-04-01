@@ -99,6 +99,7 @@ $(function(){
 		e.preventDefault();
 		
 		_timer_ = setTimeout(function(){
+
 			var left = e.pageX + 30 + "px",
 				top = e.pageY + 10 + "px";
 
@@ -111,6 +112,7 @@ $(function(){
 				"top": top,
 				"left": left
 			}).show();
+	
 
 			loadAreaData();
 		}, 500);
@@ -123,7 +125,7 @@ $(function(){
 		_timer_ = undefined;
 
 		$("#areaData").css({
-			"background": "url(assets/img/loading.gif) 50% 50% no-repeat"
+			"background": "url(assets/img/loading.gif) 50% 30% no-repeat"
 		}).hide();
 		$("#areaData").children().css("visibility", "hidden");
 		$("#pop-areaData").hide();

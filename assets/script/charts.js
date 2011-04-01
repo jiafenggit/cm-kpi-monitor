@@ -6,7 +6,7 @@ $(function(){
 
 	function initChart(type){
 		type = parseInt(type, 10);
-
+		
 		switch(type){
 
 			case 0: {
@@ -565,6 +565,113 @@ $(function(){
 				break; 
 			}
 
+			case 8 :{
+				chart = new Highcharts.Chart({
+					chart: {
+						backgroundColor: {
+							linearGradient: [0, 0, 500, 500],
+							stops: [[0, 'rgb(255, 255, 255)'], [1, 'rgb(240, 240, 255)']]
+						}, 
+						renderTo: 'chart',
+						defaultSeriesType: 'column',
+						plotBackgroundColor: 'rgba(255, 255, 255, .1)',
+						plotShadow: true,
+						plotBorderWidth: 1
+					},
+					title: {
+						text: '净增客户数（arpu>=5）',
+						style: {
+							fontFamily:'微软雅黑',
+							color:'#333',
+							fontSize: '16px',
+							fontWeight: 'bold'
+						}
+					},
+					subtitle: {
+						text: ' '
+					},	
+					xAxis: {
+						gridLineWidth: 1,
+						title: {
+							align: "high",
+							text: ''
+						},
+						categories: ["海淀分公司","怀柔分公司","密云分公司","延庆分公司","平谷分公司","大兴分公司","房山分公司","通州分公司","顺义分公司","昌平分公司","朝阳分公司","南区分公司","西区分公司","中心分公司"],
+						labels: {
+							align:'right',
+							rotation:-45,
+							y:10,
+							x:5,
+							style: {
+								fontFamily:'宋体',
+								color:'#333',
+								fontSize: '14px'
+							}
+						}
+					},
+					yAxis: {
+						minorTickInterval: 'auto',
+						lineColor: '#000',
+						lineWidth: 1,
+						tickWidth: 1,
+						tickColor: '#000',
+						labels: {
+							style: {
+								fontFamily:'微软雅黑',
+								color:'#333'
+							}
+						},
+						title: {
+							formatter: function() {
+								return this.value/10000+'万户';
+							},
+							style: {
+								fontFamily:'微软雅黑',
+								color:'#333'
+							},
+							text: '净增客户数（arpu>=5）（单位：万户）'
+						}
+					},
+					legend: {
+						layout: 'vertical',
+						backgroundColor: '#FFFFFF',
+						align: 'left',
+						verticalAlign: 'top',
+						x: 50,
+						y: -5,
+						floating: true,
+						shadow: true
+					},
+					tooltip: {
+						formatter: function() {
+							return this.series.name + this.x + ' : ' + this.y+' 万户';
+						}
+					},
+					plotOptions: {
+						column: {
+							pointPadding: 0.2,
+							borderWidth: 0
+						}
+					},
+					labels: {
+						style: {
+							color: '#99b'
+						}
+					},
+					series: [
+						{
+							name: '本月',
+							data:[0.14,0.7,0.62,0.84,0.75,2.5,1.47,1.7,1.37,1.01,0.15,2.47,0.78,0.35]
+						}, {
+							name: '上月',
+							data: [-2.1,-0.27,-0.11,-0.56,-0.02,-2.96,-0.52,-1.27,-0.9,-2.37,-3.16,0.53,1.01,3.53]
+						}
+					]
+				});
+
+				break;
+			}
+
 			case 7: {
 				chart = new Highcharts.Chart({
 					chart: {
@@ -588,15 +695,17 @@ $(function(){
 							align: 'high',
 							text: ''
 						},
-						categories: ["中心分公司","西区分公司的发达饭的发达","南区分公司的发达饭的发达","朝阳分公司","昌平分公司","顺义分公司","通州分公司","房山分公司","大兴分公司","平谷分公司","延庆分公司","密云分公司","怀柔分公司","海淀分公司"],
+						categories: ["中心分公司","西区分公司的发达饭的发达西区分公司的发达饭的发达西区分公司的发达饭的发达","南区分公司的发达饭的发达","朝阳分公司","昌平分公司","顺义分公司","通州分公司","房山分公司","大兴分公司","平谷分公司","延庆分公司","密云分公司","怀柔分公司","海淀分公司"],
 						labels: {
 							align:'left',
 							rotation:45,
 							y:10,
 							x:-5,
+							staggerLines: 2,
 							style: {
 								color: '#333',
-								font: '11px 微软雅黑'
+								fontFamily: '微软雅黑',
+								fontSize:'11px'
 							}
 						}
 					},
@@ -604,7 +713,8 @@ $(function(){
 						labels: {
 							style: {
 								color: '#333',
-								font: '11px 微软雅黑'
+								fontSize: '11px',
+								fontFamily:"微软雅黑"
 							}
 						},
 						title: {
@@ -655,14 +765,17 @@ $(function(){
 						}
 					]
 				});
+
+				break;
 			}
+
 		}
 	}
 	
 	$("#chooseChart").bind("change", function(e){
 		initChart( $(e.target).val() );
 	});
-
+	
 	initChart($("#chooseChart").val());
 
 });

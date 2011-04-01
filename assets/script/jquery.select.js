@@ -18,7 +18,7 @@ $.fn.select = function(setting){
 	};
 
 	var eventChangeOption = function(e){
-
+		e.preventDefault();
 		var txt = $(e.target).text();
 		var val = $(e.target).parent().attr("value");
 
@@ -44,7 +44,7 @@ $.fn.select = function(setting){
 			var left = offset.left;
 
 			//not find, create a new one
-			var HTML = $("<div />", {
+			var HTML = $("<div></div>", {
 				"id": id + "-options",
 				css: {
 					position: "absolute",
@@ -60,13 +60,21 @@ $.fn.select = function(setting){
 					"box-shadow": "1px 1px 5px #aaa"
 				}
 			});
-
-			var UL = $("<ul class=area-selector-ul />");
-
-			$("<li value=0 class='capital current'><a href=#>北京市</a></li>").bind("click", {"id": id}, eventChangeOption).appendTo(UL);;
+			
+			var UL = $("<ul></ul>");
+			
+			if ( select.hasClass("vertical") ) {
+				var styleWidth = "width:100%;";
+			} else {
+				var styleWidth = "width:33%; float:left";
+			}
 
 			$.each(config.option, function(i, obj){
-				$("<li value=" + obj.value + "><a href=#>" + obj.text + "</a></li>").bind("click", {"id": id}, eventChangeOption).appendTo(UL);
+				var LI = $("<li value=" + obj.value + 
+								" style='cursor:pointer; color:#1044AA; font-size:1.2em; " + 
+								styleWidth + "'><a href=# style='display:block'>" + obj.text + "</a></li>");
+		
+				LI.bind("click", {"id": id}, eventChangeOption).appendTo(UL);
 			});
 
 			UL.appendTo(HTML);

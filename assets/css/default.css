@@ -3,7 +3,7 @@
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}body,button,input,select,textarea{font:12px/1.5 tahoma,arial,sans-serif;}h1,h2,h3,h4,h5,h6{font-size:100%;}address,cite,dfn,em,var{font-style:normal;}code,kbd,pre,samp{font-family:courier new,courier,monospace;}small{font-size:12px;}ul,ol{list-style:none;}a{text-decoration:none;}a:hover{text-decoration:underline;}sup{vertical-align:text-top;}sub{vertical-align:text-bottom;}legend{color:#000;}fieldset,img{border:0;}button,input,select,textarea{font-size:100%;}table{border-collapse:collapse;border-spacing:0;}
 
 /* base style */
-body { background: #EFEFEF; text-align:center; color:#333; font-family:"微软雅黑";}
+body { background: #EFEFEF; text-align:center; color:#333; font-family:"微软雅黑",sans-serif;}
 
 a:link { color:#1177bb; }
 a:visited { color:#1177bb; }
@@ -25,7 +25,7 @@ a.disabled:hover { text-decoration: none; }
 .red{color:#CB220F;}
 
 /* for jquery datapicker */
-.ui-datepicker-trigger{width:100%;}
+.ui-datepicker-trigger{width:100%; height:32px;}
 
 /* area selector + date-selector */
 .area-selector, .date-selector{float:left; width:180px;  height:32px; margin-right:10px; position:relative; cursor:pointer;}
@@ -122,14 +122,13 @@ a.disabled:hover { text-decoration: none; }
 }
 
 /* minus-mark */
-.minus-mark{height:29px; line-height:32px; float:right; }
-	.minus-mark-data{margin-right:5px; padding-left:5px; display:block; background:url(../img/minus_mark.png) 0 0 no-repeat; }
-	.minus-mark-corner{background:url(../img/minus_mark.png) right 0 no-repeat; float:right; width:5px; height:100%; }
+.minus-mark{background:url(../img/minus_mark.png) right 0 no-repeat; padding-right:5px; height:29px; line-height:29px; float:right; display:inline;}
+	.minus-mark-data{padding-left:5px; display:block; background:url(../img/minus_mark.png) 0 -29px no-repeat; }
 
 /* panel */
 .panel-hd{height:6px; font-size:0; line-height:6px; background:url(../img/panel-hd.png) 0 0 no-repeat;}
 .panel-ft{height:6px; font-size:0; line-height:6px; background:url(../img/panel-ft.png) 0 0 no-repeat; margin-bottom:10px;}
-.panel-bd{padding:0 5px; background:url(../img/panel-bd.png) 0 0 repeat-y; overflow:hidden; width:960px; }
+.panel-bd{padding:0 5px; _padding:0; background:url(../img/panel-bd.png) 0 0 repeat-y; overflow:hidden;}
 
 /* adapt-panel */
 .adapt-panel{}
@@ -153,13 +152,19 @@ a.disabled:hover { text-decoration: none; }
 /* tool-tips */
 .tool-tips{
 	text-align:left;
-	width: 400px;
 	position:absolute; 
 	top:0; 
-	left:0;}
+	left:0;
+	min-width: 300px;
+	width: auto !important;
+	width: 300px;
+	z-index:100000000000;}
 	.tool-tips-panel {
 	    padding: 10px;
 	    border: 1px solid #cccccc;
+		border-width:1px 2px 2px 1px;
+		border-color:#ccc #aaa #aaa #ccc;
+		border-radius:5px;
 	    background: #ffffff;
 	}
 	.tool-tips-arrow{ 
@@ -315,7 +320,7 @@ a.disabled:hover { text-decoration: none; }
 		border-color:#ccc #9B9F9F #9B9F9F #ccc;
 		background: #fff; 
 		border-radius:5px;}
-		#areaData{display:none; padding:10px; min-height:100px;}
+		#areaData{display:none; padding:10px; height:100%; _height:137px;}
 			#areaData h5{font-size:14px; font-weight:bold;}
 			#areaData span.areaData-date{font-size:0.9em; color:#666;}
 			#areaData li span{float:left; display:block; width:100px; }
@@ -332,7 +337,7 @@ a.disabled:hover { text-decoration: none; }
 			div.areaName .date-selector{margin-top:8px;}
 			div.areaName .btn{margin-top:8px; float:right;}
 
-		div.indicatorData table{width:100%; }
+		div.indicatorData table{width:100%;}
 			div.indicatorData tr{height:40px; }
 			div.indicatorData td.data-name{color:#1657B2; font-size:20px; font-weight:bold; text-align:left;}
 			div.indicatorData td.data-value{text-align:right; font-size:18px;}
@@ -343,6 +348,7 @@ a.disabled:hover { text-decoration: none; }
 
 
 /* indicator_detail */
+div.indicatorData{_margin:0 5px;}
 div.indicator-detail th{text-align:right; font-size:1.5em; color:#666; padding-right:20px; vertical-align:bottom;}
 	div.indicator-detail th.indicator-name{text-align:left; color:#333; font-size:30px; padding:20px 0 20px 20px; vertical-align:middle; }
 div.indicator-detail tr.odd{height:35px; background-color:#EFEFEF; }
@@ -356,13 +362,14 @@ div.indicator-detail td{padding-right:20px;}
 		#category-nav .category ul{float:right; }
 
 /* indicator_analysis */
-.indicator-choose{margin:10px 0; padding:0 20px; }
-	h3.indicator-name{font-size:30px; margin-right:20px;}
+#fanhui{float:right;}
+.indicator-choose{padding:10px 20px;}
+	h3.indicator-name{font-size:30px; margin-right:20px; float:left; }
 	    h3.indicator-name .title{float:left;}
 		.indicator-name-help{cursor:help; width:20px; height:20px; float:left;  text-indent:-100000px;  background:url(../img/help.png) right 30% no-repeat; }
 	.chooseCondition{margin-top:10px;}
 	
-	#daySelector{visibility:hidden; height:0px; line-height:0; font-size:0; position:relative; top:-13px; }
+	#daySelector{display:none; height:0px; width:0px; line-height:0px; font-size:0px; position:relative; top:-13px;}
 
 	div.category-min{float:right; margin-top:10px;}
 		div.category-min li{float:left;}
@@ -390,7 +397,7 @@ div.indicator-detail td{padding-right:20px;}
 				div.category-min li.selected a.category-min-r,
 				div.category-min li.selected a.category-min-r:hover{background-position:right -64px; color: #fff !important;}
 
-	
+div.indicator-analysis table{width:960px; }
 div.indicator-analysis th{
 	font-size:1.5em; 
 	color:#666; 
@@ -431,18 +438,16 @@ div.category-chart{float:right; margin-top:10px; z-index:100000000; position:abs
 				div.category-chart li.selected a.category-chart-r{background-position:right -70px;}
 
 .chart{
-	margin:20px 0; 
-	padding-left:1px;
+	_margin:0 5px;
 }
 
 #downloadBtn{float:right; }
 
-.related-indicator{padding:10px 20px;}
+.related-indicator{padding:10px 20px; _margin:0 5px;}
 	.related-indicator h3{font-size:20px; float:left; }
-	.related-indicator .btn{float:left; }
 	.related-indicator .related-analysis{margin-left:0;}
 
-ul.related-indicator-list{padding:0 20px 10px 0; float:left; }
+ul.related-indicator-list{padding:0 20px 10px 0; float:left; _margin-left:2.5px;}
 	ul.related-indicator-list li{float:left; margin-left:20px; width:450px; background:url(../img/related_indicator_bg.png) 0 0 no-repeat; _display: inline; }
 		ul.related-indicator-list li:hover{background-position:0 -45px; }
 		ul.related-indicator-list li table{width:100%; }
@@ -487,19 +492,38 @@ ul.related-indicator-list{padding:0 20px 10px 0; float:left; }
 /* indicator_brainMap */
 #brainMap{position:relative; }
 	#indicator-info-wrap{
-		position:fixed;
-		margin:10px;
+		position:absolute;
+		top:10px;
+		left:10px;
 		width:220px; 
 		z-index:100000;
+		overflow:hidden; 
 	}
-#indicator-current div.indicator-current-title h5{font-size:1em; color:#808080;margin-bottom: 10px;}
-#indicator-current div.indicator-current-title h5 span{font-size:1.2em;color:#3A3A3A;}
 
-#indicator-selected h5{
-	font-size:1.2em;
-	color:#3A3A3A;
-	margin-bottom: 10px; 
-}
-#brainMap #areaSelector, #brainMap #dateSelector{
-	margin-top: 10px;  
+	#indicator-current,
+	#indicator-selected{
+		padding:10px; 
+		background:url(../img/transparent-bg.png) 0 0 repeat; 
+		box-shadow:0px 0px 3px #888;
+		border-radius:5px;
+	}
+
+	#indicator-current{}
+		#indicator-btn{float:left; z-index:200000000;}
+			#indicator-btn #fanhui{float:left; margin-left:0;}
+		#brainMap #areaSelector, #brainMap #dateSelector{
+			margin-top: 10px;
+		}
+
+	#indicator-selected{margin-top:10px; }
+		#indicator-selected h5{
+			font-size:1.2em;
+			color:#3A3A3A;
+			margin-bottom: 10px; 
+		}
+
+
+#stage-inner{
+	height:100%; 
+	background: #fff; 
 }
